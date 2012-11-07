@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/tools/johntheripper by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:57:59 GMT -->
+<head>
+	<title>BindShell.Net: John The Ripper MPI Patch</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../style/default.css" />
+	<meta name="description" content="John The Ripper MPI Patch" />
+	<meta name="keywords" content="John The Ripper MPI Patch" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../index.html"><img src="../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../index.html">Home</a> : <a href="../tools.html">Tools</a> : John The Ripper MPI Patch
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../papers.html">Papers</a></li>
+<li><a href="../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../users/Dave.html">Dave</a></li>
+<li><a href="../users/John.html">John</a></li>
+<li><a href="../users/Mark.html">Mark</a></li>
+<li><a href="../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../archive/news.html">Site News</a> (9)</li>
+<li><a href="../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../archive/security.html">Security</a> (10)</li>
+<li><a href="../archive/events.html">Events</a> (36)</li>
+<li><a href="../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+
+<h1 id="toc0">John The Ripper MPI Patch</h1>
+<p><img src="johntheripper/target.gif" class="inline-left">This is an updated version of Ryan Lim's patch for <a href="http://www.openwall.com/john/">john the ripper</a> to support  <a href="http://www-unix.mcs.anl.gov/mpi/mpich/">MPI</a>, in addition to a large number of third party patches to support additional ciphers and such.</p>
+
+<p><a href="http://www-unix.mcs.anl.gov/mpi/mpich/">MPI</a> allows you to use multiple processors on a single system, or a cluster of systems for cracking passwords using john the ripper. Incredibly usefull in these days of multi core processors.</p>
+
+<p>A compatible <a href="http://www-unix.mcs.anl.gov/mpi/mpich/">MPI</a> implementation is required.<br />
+This has currently been tested on Linux/<a href="http://www.wikipedia.org/wiki/AMD64" onclick="window.open(this.href, '_self'); return false;">AMD64</a>, MacOSX/Intel and Linux/<a href="http://www.wikipedia.org/wiki/x86" onclick="window.open(this.href, '_self'); return false;">x86</a> using <a href="http://www-unix.mcs.anl.gov/mpi/mpich/">mpich2-1.0.2</a></p>
+
+
+<h2 id="toc1">Developer</h2>
+<p><a href="mailto:john@ev6.net">John Anderson</a></p>
+
+
+<h2 id="toc2">Mailing List</h2>
+<p>There is a mailing list for John-MPI available, you can subscribe to it by writing a mail containing the word &quot;subscribe&quot; in the body of the mail, and sending it to john-mpi-subscribe@bindshell.net.</p>
+
+
+<h2 id="toc3">Support</h2>
+<p>For support queries relating to the MPI version of John, please use the mailing list. Do not contact the original authors of John The Ripper or use the public mailing lists on openwall.com for issues which are specific to the MPI patches.</p>
+
+
+<h2 id="toc4">Benchmarks</h2>
+
+<pre><code> Quad Core Intel Core2 Quad Q6600 @2304MHz
+John MPI - Version 1.7.2-bp17-mpi7, 4 threads
+Benchmarking: Traditional DES [128/128 BS SSE2-16]... DONE
+Many salts:    8749K c/s real, 8771K c/s virtual
+Only one salt:    7474K c/s real, 7496K c/s virtual</code></pre>
+
+
+<pre><code> Dual Core Intel Core2 Duo, 2.16GHz, MacBook Pro MacOSX
+John MPI - Version 1.7.2-bp17-mpi4, 2 threads
+Benchmarking: Traditional DES [128/128 BS SSE2]... DONE
+Many salts:     3433087.00 c/s real, 3636739.00 c/s virtual
+Only one salt:  2852658.00 c/s real, 3021898.00 c/s virtual</code></pre>
+
+<br />
+
+<pre><code>Dual AMD Opteron 250 (2.2ghz), Gentoo Linux 64bit
+John MPI - Version 1.7.2-bp17-mpi, 2 threads
+Benchmarking: Traditional DES [128/128 BS SSE2-16]... DONE
+Many salts:     2132632.00 c/s real, 2139034.00 c/s virtual
+Only one salt:  1951692.00 c/s real, 1957552.00 c/s virtual</code></pre>
+
+<p>Please feel free to submit more benchmarks to the mailing list. With benchmark information, please include full processor information including type, vendor, clock rate and stepping etc (you can get this from /proc/cpuinfo on linux systems), as well as the make target used while compiling. Also detail any changes made to the default Makefile (such as modified CFLAGS, or non default compiler). Finally detail the type and version of compiler used (gcc -v shows this information for gcc).</p>
+
+
+<h2 id="toc5">Changes</h2>
+<ul>
+    <li>Support for more ciphers (NTLM, MS domain logon cache, <a href="http://www.wikipedia.org/wiki/Oracle" onclick="window.open(this.href, '_self'); return false;">Oracle</a>, <a href="http://www.wikipedia.org/wiki/MySQL" onclick="window.open(this.href, '_self'); return false;">MySQL</a>)</li>
+    <li>1.7.2 now includes a ciphers.h file where you can enable/disable ciphers at compile time</li>
+    <li>1.7.2-bp17-mpi2 - no longer requires a copy of the .chr files for each node</li>
+    <li>1.7.2-bp17-mpi2 - NTLM support is now fixed</li>
+    <li>1.7.2-bp17-mpi2 - now has SSE2 or MMX versions of NTLM, which are much faster than the generic ones</li>
+    <li>1.7.2-bp17-mpi3 - no longer requires you to symlink all the chr files</li>
+    <li>1.7.2-bp17-mpi3 - You can now kill -HUP any of the john processes to see their current status</li>
+    <li>1.7.2-bp17-mpi4 - altivec.h was not getting included on PPC linux (thanks to RB for noticing this)</li>
+    <li>1.7.2-bp17-mpi4 - Fixed to work on OSX/Intel - use the macosx-x86-sse2 target</li>
+    <li>1.7.2-bp17-mpi4 - Status line now shows the mpi_id</li>
+    <li>1.7.2-bp17-mpi5 - The -show function now works again</li>
+    <li>1.7.2-bp17-mpi6 - Memory leak and potential buffer overflow (not exploitable) fixed by Carsten G</li>
+    <li>1.7.2-bp17-mpi6 - Support for SIGUSR1 as well as SIGHUP, required for use with OpenMPI</li>
+    <li>1.7.2-bp17-mpi7 - Support for IPB2 (Invision Power Board) cipher added (requested)</li>
+    <li>1.7.2-bp17-mpi7 - Cygwin and benchmark fixes from Elli0t merged in</li>
+    <li>1.7.2-bp17-mpi8 - Build fixes for make generic, replaced README file, if you already have mpi7 working there's no point updating to mpi8.</li>
+    <li>1.7.2-mpi8 - Cleaned up version contributed by RB, mpi patches only, no extra ciphers... Other cipher patches should apply relatively cleanly.</li>
+    <li>1.7.3.1-mpi8 - MPI-only patch updated to 1.7.3.1</li>
+    <li>john-1.7.3.1-mpi10.patch.gz contributed patch added</li>
+</ul>
+
+
+<h2 id="toc6">Known Issues</h2>
+<ul>
+    <li>If you use Gentoo, make sure you compile mpich2 _WITHOUT_ the &quot;threads&quot; use flag, otherwise john-mpi will fail to compile with undefined references to MPIU_Free and MPIU_Malloc</li>
+    <li>If you use OpenMPI instead of mpich2, the SIGHUP signal doesn't get passed to john. It is necessary to send a SIGUSR1 instead.</li>
+    <li>Currently the 1.7.3.x versions don't include the bp17 extra ciphers patch, third party patches should apply reasonably cleanly, please report any problems and we will work on making the patches mpi compatible and/or releasing a jumbo patch with mpi and extra ciphers built in..</li>
+</ul>
+
+
+<h2 id="toc7">Download</h2>
+<p>If you are unsure how to apply patches, please download the pre patched versions.</p>
+
+
+<h3 id="toc8">Latest Version</h3>
+<ul>
+    <li><a href="johntheripper/john-1.7.3.1-mpi8-small.patch.gz">john-1.7.3.1-mpi8-small.patch.gz</a> Patch for John 1.7.3.1 (md5sum: c73e7cbf79b420ac4bb47a676d493a29)</li>
+    <li><a href="johntheripper/john-1.7.3.1-mpi8.tar.gz">john-1.7.3.1-mpi8.tar.gz</a> Pre patched version (md5sum: c686d042846f4e5a275b57b4382392d1)</li>
+    <li><a href="johntheripper/john-1.7.3.1-all-2-mpi8.tar.gz">john-1.7.3.1-all-2-mpi8.tar.gz</a> Pre patched MPI John with additional ciphers patched in too (md5sum: 82f513ac756f52ab4ae4b75971f92542)</li>
+</ul>
+
+
+<h3 id="toc9">Download patches</h3>
+<ul>
+    <li><a href="johntheripper/john-1.7.3.1-mpi8-small.patch.gz">john-1.7.3.1-mpi8-small.patch.gz</a> Patch for John 1.7.3.1 (md5sum: c73e7cbf79b420ac4bb47a676d493a29)</li>
+    <li><a href="johntheripper/john-1.7.2-mpi8.html">john-1.7.2-mpi8.diff</a> MPI only patch for 1.7.2, no extra cipher support contributed by RB. (md5sum: 566006b20a03841cba524a12ee1fb784)</li>
+</ul>
+
+
+<h3 id="toc10">Download pre-patched versions</h3>
+<ul>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi8.tar.gz">john-1.7.2-bp17-mpi8.tar.gz</a> (md5sum: 6446d48c2360c2bfe5de8a719599e458)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi7.tar.gz">john-1.7.2-bp17-mpi7.tar.gz</a> (md5sum: 2bce685b04da1d122c931a197110fb39)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi6.tar.gz">john-1.7.2-bp17-mpi6.tar.gz</a> (md5sum: 25760f9fb44a67f6e4f6787128bd5faa)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi5.tar.gz">john-1.7.2-bp17-mpi5.tar.gz</a> (md5sum: 68635f640e26d485fc33dceb7f3c282e)</li>
+    <li><a href="johntheripper/john-1.7.0.2-bp17-mpi.tar.gzip">john-1.7.0.2-bp17-mpi.tar.gz</a> (md5sum: 943a71474b84103577a18ac86a005702)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi.tar.gzip">john-1.7.2-bp17-mpi.tar.gz</a>  (md5sum: 96372438c82f104de4253a7d3d08185d)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi2.tar.gzip">john-1.7.2-bp17-mpi2.tar.gz</a> (md5sum: 11dfb6a9b25ddcb642386175ab70d0e5)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi3.tar.gzip">john-1.7.2-bp17-mpi3.tar.gz</a> (md5sum: f17176513cb804253615805fcc94735b)</li>
+    <li><a href="johntheripper/john-1.7.2-bp17-mpi4.tar.gz">john-1.7.2-bp17-mpi4.tar.gz</a> (md5sum: 4b14af8799bbbaee5f6bceb87ce565eb)</li>
+</ul>
+
+
+<h3 id="toc11">Download pre-compiled versions</h3>
+<ul>
+    <li><a href="johntheripper/john-1.7.3.1-mpi8-macosx-105-64.tar.gz">MacOS X86 10.5 64bit</a> (md5sum: f089e9b243adfdf575964677bb82bbfa)</li>
+    <li><a href="johntheripper/john-1.7.3.1-mpi8-macosx-105-32.tar.gz">MacOS X86 10.5 32bit</a> (md5sum: 4afc30a5cf812f1eb0051253385409b7)</li>
+</ul>
+
+<p>If you'd like any other precompiled versions please let me know at the address above.</p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/tools/johntheripper by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 13:06:08 GMT -->
+</html>
