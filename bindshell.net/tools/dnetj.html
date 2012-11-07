@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/tools/dnetj by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:56:50 GMT -->
+<head>
+	<title>BindShell.Net: Dnetj</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../style/default.css" />
+	<meta name="description" content="Distributed version of John the ripper." />
+	<meta name="keywords" content="dnetj john password cracking" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../index.html"><img src="../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../index.html">Home</a> : <a href="../tools.html">Tools</a> : Dnetj
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../papers.html">Papers</a></li>
+<li><a href="../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../users/Dave.html">Dave</a></li>
+<li><a href="../users/John.html">John</a></li>
+<li><a href="../users/Mark.html">Mark</a></li>
+<li><a href="../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../archive/news.html">Site News</a> (9)</li>
+<li><a href="../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../archive/security.html">Security</a> (10)</li>
+<li><a href="../archive/events.html">Events</a> (36)</li>
+<li><a href="../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+
+<h1 id="toc0">Distributed Networked John</h1>
+<p><img src="dnetj/dtarget.gif" class="inline-left">This is a client/server framework that wraps around a slightly modified version of John The Ripper.  <br />
+In contrast to the MPI version of John, dnetj allows the use of nodes which are of differing speeds and for nodes which do not run 24/7.<br />
+This tool was written for a number of reasons, firstly the MPI version requires an MPI installation on each node, and for the nodes to be configured together and be roughly the same speed. Also, although other distributed password crackers exist (such as djohn or medussa) they all have their own limitations.<br />
+The server loads a set of password hashes, and splits the available keyspace into &quot;work units&quot; of a configurable size. The clients connect and retrieve the hashes, as well as a set of work units to process. Once a client has processed some work units, it connects back to the server to submit the completed units as well as any passwords which have been cracked.<br />
+Possible uses include eg, running as a background task on all the workstations in an office.<br />
+Note, this tool is at an early stage of development and is likely to be very buggy, although it is functional. Bug reports and/or patches are strongly encouraged.</p>
+
+
+<h2 id="toc1">Developer</h2>
+<p><a href="mailto:john@ev6.net">John Anderson</a></p>
+
+
+<h2 id="toc2">Mailing List</h2>
+<p>There is a mailing list for Dnetj available, you can subscribe to it by writing a mail containing the word &quot;subscribe&quot; in the body of the mail, and sending it to john-mpi-subscribe@bindshell.net. As this list is currently fairly low traffic, it is shared with the john-mpi list.</p>
+
+
+<h2 id="toc3">Support</h2>
+<p>For support queries relating to dnetj, please use the mailing list. Do not contact the original authors of John The Ripper or use the public mailing lists on openwall.com for issues which are specific to the modified versions.</p>
+
+
+<h2 id="toc4">Supported Platforms</h2>
+<p>Dnetj has been tested on the following systems:</p>
+
+<ul>
+    <li>Linux/x86</li>
+    <li>Linux/amd64</li>
+    <li>Linux/sparc</li>
+    <li>MacOSX/PPC</li>
+    <li>MacOSX/Intel</li>
+    <li>Solaris/x86</li>
+</ul>
+
+
+<h2 id="toc5">Features</h2>
+<ul>
+    <li>Distributed client/server model, any number of clients can be supported and can be brought up and down at will</li>
+    <li>Support for any cipher supported by John 1.7.2 (additional cipher patches should be able to be applied normally)</li>
+    <li>Keep the changes to John to a minimum, so that patches/updates can still be applied without too much fuss</li>
+    <li>Uses the same optimized encryption routines as John</li>
+    <li>Cracked hashes are stored in the standard john.pot format, so they can be displayed with john -show</li>
+    <li>Passwd files sent to clients are sanitised (only the hash is sent, other fields from the passwd file are removed)</li>
+    <li>Capability for auto client registration</li>
+    <li>Code is intentionally kept clean to aid porting</li>
+</ul>
+
+
+<h2 id="toc6">Changes</h2>
+<ul>
+    <li>0.2.5 - Initial public release</li>
+</ul>
+
+
+<h2 id="toc7">Known Issues</h2>
+<ul>
+    <li>Clients will sometimes crash if unable to connect to the server for a long period of time.</li>
+    <li>Work unit size is limited to a 32bit integer number of crypts (ie: 4294967296)</li>
+    <li>Node performance calculations wrap once the node has performed more than 4294967296 crypts, so nodes may appear to be much slower than they truly are.</li>
+    <li>Doesn't work with NTLM, as the NTLM hash is stored in a different field of the passwd file.</li>
+    <li>Traffic is sent in plain text (this makes debugging easier at this early stage of development)</li>
+    <li>Makefile is very basic, and has no configure script, compilation on Solaris requires adding -lnsl -lsocket to the compile command.</li>
+</ul>
+
+
+<h2 id="toc8">Download</h2>
+
+<h3 id="toc9">Latest Version</h3>
+<ul>
+    <li><a href="dnetj/dnetj-0.2.5.tar.gz">dnetj-0.2.5.tar.gz</a> (md5sum: 88a0270ef8579e977c77c1d73df5b702)</li>
+</ul>
+
+
+<h3 id="toc10">Download pre-compiled versions</h3>
+<p>None yet, if you'd like precompiled versions please let me know at the address above.</p>
+
+
+<h2 id="toc11">Documentation</h2>
+<p>There is currently a rudimentary &quot;INSTALL&quot; file located in the distribution archive. Better documentation will follow. In the meantime, please feel free to email for assistance.</p>
+
+<p>Currently the client/server must be compiled seperately from the bundled version of John.</p>
+
+<p>The sourcecode to John is located in the src directory, and this can be compiled in the same way John is normally compiled. One caveat is that for a Dnetj server installation, the Makefile needs to be edited and -DMASTER added to the CFLAGS line.</p>
+
+<p>The client/server source is located in the &quot;dist&quot; subdirectory, and can be compiled with a simple &quot;make&quot;. This will create 2 binaries, &quot;client&quot; and &quot;server&quot;.</p>
+
+<p>The client or server binary should be moved to the &quot;run&quot; subdirectory, alongside the john binary. Also copy the file conf or conf-client into the run directory and edit it accordingly, most of the options within the configuration file are self explanatory or explained by comments.</p>
+
+<p>To execute, start either the client or server with it's corresponding configuration file as the first argument, eg:<br />
+./server conf<br />
+./client conf-client</p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/tools/dnetj by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:57:21 GMT -->
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/tools/odysseus by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 13:06:14 GMT -->
+<head>
+	<title>BindShell.Net: Odysseus</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../style/default.css" />
+	<meta name="description" content="Odysseus is a proxy server, which acts as a man-in-the-middle during an HTTP session.  Odysseus will intercept an HTTP session's data in either direction and give the user the ability to alter the data before transmission." />
+	<meta name="keywords" content="Proxy, web application security, penetration testing" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../index.html"><img src="../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../index.html">Home</a> : <a href="../tools.html">Tools</a> : Odysseus
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../papers.html">Papers</a></li>
+<li><a href="../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../users/Dave.html">Dave</a></li>
+<li><a href="../users/John.html">John</a></li>
+<li><a href="../users/Mark.html">Mark</a></li>
+<li><a href="../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../archive/news.html">Site News</a> (9)</li>
+<li><a href="../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../archive/security.html">Security</a> (10)</li>
+<li><a href="../archive/events.html">Events</a> (36)</li>
+<li><a href="../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+<div id="toc"><strong>Contents</strong>
+	<div style="margin-left: 0em;"><a href="odysseus.html#toc1">Features</a></div>
+	<div style="margin-left: 0em;"><a href="odysseus.html#toc2">Download</a></div>
+</div>
+
+
+<h1 id="toc0">Odysseus</h1>
+<p>Odysseus is a tool designed for testing the security of web applications.</p>
+
+<p>Odysseus is a proxy server, which acts as a man-in-the-middle during an HTTP session. A typical HTTP proxy will relay packets to and from a client browser and a web server. Odysseus will intercept an HTTP session's data in either direction and give the user the ability to alter the data before transmission.</p>
+
+<p>For example, during a normal HTTP SSL connection a typical proxy will relay the session between the server and the client and allow the two end nodes to negotiate SSL. In contrast, when in intercept mode, Odysseus will pretend to be the server and negotiate two SSL sessions, one with the client browser and another with the web server.</p>
+
+<p>As data is transmitted between the two nodes, Odysseus decrypts the data and gives the user the ability to alter and/or log the data in clear text before transmission.</p>
+
+<p>Answers to <a href="odysseus/faq.html">Frequently Asked Questions</a> are also available.</p>
+
+<p>A companion utility, <a href="telemachus.html">Telemachus</a>, is available to further functionality during an application assessment.</p>
+
+
+<h2 id="toc1">Features</h2>
+<ul>
+    <li>Multi-threaded native Win32 executable. The use of native Window code, combined with extensive multi-threading, means that Odysseus is fast. Speed was a primary development objective.</li>
+    <li>No external dependencies. Everything needed to intercept web requests (apart from a browser configured to use Odysseus as a proxy :) is included in the distribution archive. No additional downloads or installations are required.</li>
+    <li>Flexible &amp; configurable. A wealth of configuration options means Odysseus should be flexible enough to meet the needs of nearly any web based application assessment.</li>
+    <li>Low desktop profile. Odysseus doesn't clutter your desktop with redundant windows. A simple System Tray icon is all that is needed to access it's many features. The various components of Odysseus appear and disappear as configured, or instructed, by the user.</li>
+</ul>
+
+
+<h2 id="toc2">Download</h2>
+<ul>
+    <li><a href="odysseus/Odysseus-2-0-0-84.exe">Odysseus-2-0-0-84.exe</a> (md5sum: ae8ec65056ea652bda6a9eaeed091b1e)</li>
+    <li><a href="odysseus/Odysseus-2-0-0-84.zip">Odysseus-2-0-0-84.zip</a> (md5sum: 4bee30c8857b1197190047169c45d8db)</li>
+</ul>
+
+<p><div class="lastupdate">Last updated by Wade on 30-Dec-06 at 11:50am</div></p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/tools/odysseus by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 13:06:16 GMT -->
+</html>

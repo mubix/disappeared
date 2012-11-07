@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/papers/xssv/advogato by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:56:45 GMT -->
+<head>
+	<title>BindShell.Net: Advogato XSS Virus</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../../style/default.css" />
+	<meta name="description" content="Advogato XSS Virus" />
+	<meta name="keywords" content="Advogato XSS Virus" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../../index.html"><img src="../../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../../index.html">Home</a> : <a href="../../papers.html">Papers</a> : <a href="../xssv.html">The Cross-site Scripting Virus</a> : Advogato XSS Virus
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../../papers.html">Papers</a></li>
+<li><a href="../../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../../users/Dave.html">Dave</a></li>
+<li><a href="../../users/John.html">John</a></li>
+<li><a href="../../users/Mark.html">Mark</a></li>
+<li><a href="../../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../../archive/news.html">Site News</a> (9)</li>
+<li><a href="../../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../../archive/security.html">Security</a> (10)</li>
+<li><a href="../../archive/events.html">Events</a> (36)</li>
+<li><a href="../../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+<div id="toc"><strong>Contents</strong>
+	<div style="margin-left: 0em;"><a href="advogato.html#toc1">Correspondence</a></div>
+	<div style="margin-left: 1em;"><a href="advogato.html#toc2">Posted 21 Sep 2002 by mascot (Journeyer)</a></div>
+	<div style="margin-left: 1em;"><a href="advogato.html#toc3">Should be fixed now, posted 21 Sep 2002 by raph</a></div>
+	<div style="margin-left: 1em;"><a href="advogato.html#toc4">To check or not to check, posted 22 Sep 2002 by garym</a></div>
+	<div style="margin-left: 1em;"><a href="advogato.html#toc5">disinfection, posted 23 Sep 2002 by Denny</a></div>
+	<div style="margin-left: 1em;"><a href="advogato.html#toc6">Re: disinfection, posted 24 Sep 2002 by mascot</a></div>
+</div>
+
+
+<h1 id="toc0">Advogato XSS Virus</h1>
+
+<h2 id="toc1">Correspondence</h2>
+<p>This account was posted on <a href="http://www.advogato.org/" onclick="window.open(this.href, '_self'); return false;">http://www.advogato.org/</a>:</p>
+
+
+<h3 id="toc2">Posted 21 Sep 2002 by mascot (Journeyer)</h3>
+<p>A warning: someone has been playing around with Advogato, and has come up with something I can only think of as an Advogato virus. It spreads each time you visit this person's page - or even the People index!</p>
+
+<p>The virus works because Advogato doesn't check for disallowed HTML in your first and last names. This person - using accounts ttt, tttt, ttt1, and ttt2 - has placed an iframe and some clever Javascript in their first name field, which will automatically update the account of any visitor so that their name fields also contain the iframe.</p>
+
+<p>Since the name fields are displayed not only on the personal page, but also on the People index, the virus will spread to anyone who visits this index. I suspect that this will spread quite fast. Of course, it's very easy to disinfect your account - simply go into your Account page and re-enter your first and last name. It would probably also be to fix Advogato, to stop this particular exploit from happening again.</p>
+
+<p>But this article was posted partly as a warning, and partly to pose a question: Will any website ever be totally attack-proof?</p>
+
+
+<h3 id="toc3">Should be fixed now, posted 21 Sep 2002 by raph</h3>
+<p>I just committed a patch and made it live. This runs all names through nice_text() when being rendered to HTML.</p>
+
+<p>Thanks for the heads-up!</p>
+
+
+<h3 id="toc4">To check or not to check, posted 22 Sep 2002 by garym</h3>
+<p>I must confess a curious feeling on reading the headline in my Peerkat display this morning: If the website is infected, but you have to go to the website to read the news of the infection (and presumably the fix too), isn't that a bit of a quandry? If I follow the text, I might get infected by the story having been infected by infected accounts reading it, or the story itself may be a trojan lure.</p>
+
+<p>Ok, I didn't take those fears seriously, but they did flash through my mind on reading the headlines. In the end I figured, &quot;How bad could a website hack on a Linux client actually be?&quot; and did the click through.</p>
+
+
+<h3 id="toc5">disinfection, posted 23 Sep 2002 by Denny</h3>
+<p>raph, did you disinfect the database after you patched, or should people re-enter their names to be sure?</p>
+
+<p>~denny</p>
+
+
+<h3 id="toc6">Re: disinfection, posted 24 Sep 2002 by mascot</h3>
+<p>It seems that the database was disinfected (or something else happened to stop the virus appearing).</p>
+
+<p>But the quick way to tell if you're infected was to go to your personal page; if a box containing a load of text appears in place of your name, then you're infected and you need to re-enter your name. (The virus didn't hide itself at all; if your name looks right then you don't have the virus.)</p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/papers/xssv/advogato by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:56:45 GMT -->
+</html>

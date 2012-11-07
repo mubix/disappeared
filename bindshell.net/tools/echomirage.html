@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<!-- Mirrored from bindshell.net/tools/echomirage by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:57:25 GMT -->
+<head>
+	<title>BindShell.Net: Echo Mirage</title>
+	<link rel="pingback" href="http://bindshell.net/www.bindshell.net/pingback.html" />
+	<link rel="stylesheet" type="text/css" media="all" href="../style/default.css" />
+	<meta name="description" content="Generic proxy capable of observing and modifying traffic before it is transmitted over the network." />
+	<meta name="keywords" content="generic network proxy" />
+</head>
+<body>
+
+<div id="banner">
+<a href="../index.html"><img src="../image/logo.gif"></a>
+</div>
+
+<div id="breadcrumbs">
+<a href="../index.html">Home</a> : <a href="../tools.html">Tools</a> : Echo Mirage
+</div>
+<div id="main">
+	<div id="sidebar">
+		<div class="section">
+<p class="title">Index</p>
+<ul>
+<li><a href="../papers.html">Papers</a></li>
+<li><a href="../tools.html">Tools</a></li>
+</ul>
+<p class="title">Users</p>
+<ul>
+<li><a href="../users/Dave.html">Dave</a></li>
+<li><a href="../users/John.html">John</a></li>
+<li><a href="../users/Mark.html">Mark</a></li>
+<li><a href="../users/Wade.html">Wade</a></li>
+</ul>
+<p class="title">Categories</p>
+<ul>
+<li><a href="../archive/news.html">Site News</a> (9)</li>
+<li><a href="../archive/rants.html">Rants</a> (1)</li>
+<li><a href="../archive/security.html">Security</a> (10)</li>
+<li><a href="../archive/events.html">Events</a> (36)</li>
+<li><a href="../archive/technology.html">Technology</a> (5)</li>
+</ul>
+<p class="title">Archive</p>
+<ul>
+<li><a href="../archive/2010/December.html">December </a> (1)</li>
+<li><a href="../archive/2010/November.html">November </a> (1)</li>
+<li><a href="../archive/2010/October.html">October  </a> (2)</li>
+<li><a href="../archive/2010/March.html">March    </a> (1)</li>
+<li><a href="../archive/2010/February.html">February </a> (4)</li>
+<li><a href="../archive/2009/December.html">December </a> (1)</li>
+<li><a href="../archive/2009/September.html">September</a> (4)</li>
+<li><a href="../archive/2009/August.html">August   </a> (1)</li>
+<li><a href="../archive/2009/July.html">July     </a> (1)</li>
+<li><a href="../archive/2009/June.html">June     </a> (3)</li>
+<li><a href="../archive/2009/May.html">May      </a> (1)</li>
+<li><a href="../archive/2009/April.html">April    </a> (2)</li>
+</ul>
+
+		</div>
+<div class="footer">[ <a href="https://bindshell.net/login">Login</a> ]</div>
+	</div>
+	<div id="pagecontent">
+<div id="toc"><strong>Contents</strong>
+	<div style="margin-left: 0em;"><a href="echomirage.html#toc1">Change Log</a></div>
+	<div style="margin-left: 1em;"><a href="echomirage.html#toc2">Changes In 1.2</a></div>
+	<div style="margin-left: 1em;"><a href="echomirage.html#toc3">Changes In 1.1</a></div>
+	<div style="margin-left: 0em;"><a href="echomirage.html#toc4">Download</a></div>
+	<div style="margin-left: 0em;"><a href="echomirage.html#toc5">Author</a></div>
+</div>
+
+
+<h1 id="toc0">Echo Mirage</h1>
+<p><img src="echomirage/logo.gif" class="inline-left">Echo Mirage is a generic network proxy. It uses DLL injection and function hooking techniques to redirect network related function calls so that data transmitted and received by local applications can be observed and modified.</p>
+
+<p>Windows encryption and OpenSSL functions are also hooked so that plain text of data being sent and received over an encrypted session is also available.</p>
+
+<p>Traffic can be intercepted in real-time, or manipulated with regular expressions and action scripts</p>
+
+<p>Several <a href="echomirage/screenshots.html">screen shots</a> are available.</p>
+
+
+<h2 id="toc1">Change Log</h2>
+
+<h3 id="toc2">Changes In 1.2</h3>
+<ul>
+    <li>Implemented <tt>RegexReplace()</tt> in action scripts.</li>
+    <li>Implemented PCap logging (in a somewhat limited fashion).</li>
+    <li>Implemented numerically incrementing log files (%n or %N in any log filename).</li>
+    <li>Implemented hot-keys.</li>
+    <li>Added default processing rules so that Echo Mirage intercepts all traffic by default.</li>
+    <li>Added append option for all log files.</li>
+</ul>
+
+
+<h3 id="toc3">Changes In 1.1</h3>
+<ul>
+    <li>Hooked <tt>RecvFrom</tt>, <tt>SendTo</tt>, <tt>WSAConnect</tt>, <tt>WSASend</tt>, <tt>WSASendTo</tt> and <tt>WSARecvFrom</tt>.</li>
+    <li>Fixed intermittent crash on uninject.</li>
+    <li>Fixed intermittent crash in thread termination.</li>
+</ul>
+
+
+<h2 id="toc4">Download</h2>
+
+<br>
+Echo Mirage is now available
+from <a href="http://www.wildcroftsecurity.com/echo-mirage">http://www.wildcroftsecurity.com/echo-mirage</a>.<br>
+<br>
+
+<h2 id="toc5">Author</h2>
+<p>Dave Armstrong <a href="mailto:dave@bindshell.net">&lt;dave@bindshell.net&gt;</a></p>
+
+<p><div class="lastupdate">Last updated by Dave on 16-Dec-06 at 12:59pm</div></p>
+
+	</div>
+</div>
+
+<a href="http://bindshell.net/login" accesskey="L" class="hidden"></a>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+	<rdf:Description rdf:about="http://www.bindshell.net"
+	 dc:identifier="http://www.bindshell.net"
+	 dc:title="bindshell.net"
+	 trackback:ping="http://bindshell.net/trackback" />
+</rdf:RDF>
+-->
+</body>
+
+<!-- Mirrored from bindshell.net/tools/echomirage by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 28 Jan 2011 12:57:46 GMT -->
+</html>
