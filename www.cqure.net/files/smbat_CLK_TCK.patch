@@ -1,0 +1,12 @@
+diff -ru smbat/smbbf.c smbat.patched/smbbf.c
+--- smbat/smbbf.c	2003-08-28 22:30:21.000000000 +0200
++++ smbat.patched/smbbf.c	2009-05-10 15:51:01.000000000 +0200
+@@ -273,7 +273,7 @@
+   if ( uFile != NULL )
+     fclose(uFile);
+ 
+-  fTotalTime = (fEndTicks - fStartTicks) / CLK_TCK;
++  fTotalTime = (fEndTicks - fStartTicks) / CLOCKS_PER_SEC;
+ 
+   fprintf(stdout, "\n-- Password Statistics --\n\n");
+   fprintf(stdout, "Total tries %d in %.2f seconds\n", nTotalTries, fTotalTime);

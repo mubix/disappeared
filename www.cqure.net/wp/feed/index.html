@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cqure.net</title>
+	<atom:link href="http://www.cqure.net/wp/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.cqure.net/wp</link>
+	<description></description>
+	<lastBuildDate>Thu, 19 Jul 2012 12:36:51 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=</generator>
+		<item>
+		<title>Metasploit password capturing modules</title>
+		<link>http://www.cqure.net/wp/2012/07/metasploit-password-capturing-modules/</link>
+		<comments>http://www.cqure.net/wp/2012/07/metasploit-password-capturing-modules/#comments</comments>
+		<pubDate>Thu, 12 Jul 2012 21:16:28 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=471</guid>
+		<description><![CDATA[I recently finished writing three Metasploit modules for capturing passwords for VNC, SQL Server and DB2 (and other DRDA based databases). Being new to the Metasploit project (from a development perspective), Ruby and Git I can honestly say it was a challenge. I probably spent more time understanding Git and Ruby than implementing the actual [...]]]></description>
+			<content:encoded><![CDATA[<p>I recently finished writing three Metasploit modules for capturing passwords for VNC, SQL Server and DB2 (and other DRDA based databases). Being new to the Metasploit project (from a development perspective), Ruby and Git I can honestly say it was a challenge. I probably spent more time understanding Git and Ruby than implementing the actual network services. Having contributed a lot of &#8220;client&#8221; scripts to the Nmap project I decided it was time to implement some server components and the Metasploit project seemed to be a good option. All in all, it was a fun project and the review process went very smoothly and the modules were merged quickly.</p>
+<p>In terms of the modules, they&#8217;re pretty straight forward;</p>
+<ul>
+<li>vnc.rb allows capturing challenge/response pairs for authentication suitable to send to JTR</li>
+<li>mssql.rb allows capturing both NTLM challenge/response authentication and the weaker &#8220;encoded&#8221; passwords</li>
+<li>drda.rb allows capturing and decoding EBDIC encoded username and passwords</li>
+</ul>
+<p>I have a few more modules I hope to implement ones I finish some other stuff I&#8217;m currently working on.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2012%2F07%2Fmetasploit-password-capturing-modules%2F&amp;title=Metasploit%20password%20capturing%20modules" id="wpa2a_2"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2012/07/metasploit-password-capturing-modules/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Nmap 6 is out</title>
+		<link>http://www.cqure.net/wp/2012/05/nmap-6-is-out/</link>
+		<comments>http://www.cqure.net/wp/2012/05/nmap-6-is-out/#comments</comments>
+		<pubDate>Mon, 21 May 2012 19:43:20 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[brute]]></category>
+		<category><![CDATA[hack]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[ipv6]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[scanner]]></category>
+		<category><![CDATA[security]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=467</guid>
+		<description><![CDATA[Be sure to get it at http://nmap.org/6 !]]></description>
+			<content:encoded><![CDATA[<p>Be sure to get it at <a href="http://nmap.org/6">http://nmap.org/6</a> !</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2012%2F05%2Fnmap-6-is-out%2F&amp;title=Nmap%206%20is%20out" id="wpa2a_4"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2012/05/nmap-6-is-out/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Oracle query support in Nmap</title>
+		<link>http://www.cqure.net/wp/2011/08/oracle-query-support-in-nmap/</link>
+		<comments>http://www.cqure.net/wp/2011/08/oracle-query-support-in-nmap/#comments</comments>
+		<pubDate>Thu, 11 Aug 2011 08:31:01 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[10g]]></category>
+		<category><![CDATA[11g]]></category>
+		<category><![CDATA[dump]]></category>
+		<category><![CDATA[hash]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[query]]></category>
+		<category><![CDATA[script]]></category>
+		<category><![CDATA[tns]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=455</guid>
+		<description><![CDATA[I&#8217;ve just committed an updated version of the TNS library to Nmap, adding support for running Oracle database queries from Nmap scripts. I&#8217;ve put a considerable amount of work into trying to understand how the protocol works, due to the lack of documentation, and think that I&#8217;ve finally succeeded. In addition I&#8217;ve posted two new [...]]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve just committed an updated version of the TNS library to Nmap, adding support for running Oracle database queries from Nmap scripts. I&#8217;ve put a considerable amount of work into trying to understand how the protocol works, due to the lack of documentation, and think that I&#8217;ve finally succeeded.</p>
+<p>In addition I&#8217;ve posted two new scripts to the nmap-dev mailing list that make use of this new functionality:</p>
+<ul>
+<li><a href="http://seclists.org/nmap-dev/2011/q3/545">oracle-query</a> &#8211; runs a given query against the Oracle database server and returns the results</li>
+<li><a href="http://seclists.org/nmap-dev/2011/q3/546">oracle-hash-dump</a> &#8211; dumps the password hashes from an Oracle database server</li>
+</ul>
+<p>In case you have the possibility to test this new code against Oracle 10g and 11g, please let me know how it works out. I&#8217;ll hopefully commit the two scripts to Nmap within the next few days.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F08%2Foracle-query-support-in-nmap%2F&amp;title=Oracle%20query%20support%20in%20Nmap" id="wpa2a_6"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/08/oracle-query-support-in-nmap/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>I&#8217;ve ported mbenum to Nmap</title>
+		<link>http://www.cqure.net/wp/2011/08/ive-ported-mbenum-to-nmap/</link>
+		<comments>http://www.cqure.net/wp/2011/08/ive-ported-mbenum-to-nmap/#comments</comments>
+		<pubDate>Wed, 10 Aug 2011 08:35:08 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[discover]]></category>
+		<category><![CDATA[master browser]]></category>
+		<category><![CDATA[mbenum]]></category>
+		<category><![CDATA[mssql]]></category>
+		<category><![CDATA[netbios]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[scan]]></category>
+		<category><![CDATA[servers]]></category>
+		<category><![CDATA[Windows]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=453</guid>
+		<description><![CDATA[Thank&#8217;s to some great effort put into the smb libraries by the folks over at nmap-dev, porting mbenum to Nmap wasn&#8217;t as hard as I&#8217;ve imagined. A first version has been committed to subversion a while ago but I forgot to publish this blog post at the time. Feel free to try it out! If [...]]]></description>
+			<content:encoded><![CDATA[<p>Thank&#8217;s to some great effort put into the smb libraries by the folks over at nmap-dev, porting mbenum to Nmap wasn&#8217;t as hard as I&#8217;ve imagined. A first version has been committed to subversion a while ago but I forgot to publish this blog post at the time. Feel free to try it out! If you haven&#8217;t used <a href="http://www.cqure.net/wp/mbenum/">mbenum </a>before it&#8217;s a tool that allows you to get a good picture of a network by querying a single system.</p>
+<p>Mbenum or the Nmap script smb-mbenum relies on being able to query the master browser for a particular domain or workgroup. You can find the master browser by sending a netbios query for the __MSBROWSE__  name. The Nmap script broadcast-netbios-master-browser can be used to identify the master browser for your broadcast domain by sending a netbios query to the broadcast address.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F08%2Five-ported-mbenum-to-nmap%2F&amp;title=I%E2%80%99ve%20ported%20mbenum%20to%20Nmap" id="wpa2a_8"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/08/ive-ported-mbenum-to-nmap/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Using Nmap for pentesting eDirectory</title>
+		<link>http://www.cqure.net/wp/2011/06/using-nmap-for-pentesting-edirectory/</link>
+		<comments>http://www.cqure.net/wp/2011/06/using-nmap-for-pentesting-edirectory/#comments</comments>
+		<pubDate>Sun, 05 Jun 2011 19:52:00 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[discovery]]></category>
+		<category><![CDATA[edirectory]]></category>
+		<category><![CDATA[ldap]]></category>
+		<category><![CDATA[ncp]]></category>
+		<category><![CDATA[netware core protocol]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[novell]]></category>
+		<category><![CDATA[pentest]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=448</guid>
+		<description><![CDATA[While doing a security review the other day I came across Novell eDirectory running on Windows. It&#8217;s been a while since I looked at eDirectory and while it&#8217;s a lot of LDAP, the servers were also running the Netware Core Protocol (NCP). I noticed that there wasn&#8217;t any NCP support in Nmap so I decided [...]]]></description>
+			<content:encoded><![CDATA[<p>While doing a security review the other day I came across Novell eDirectory running on Windows. It&#8217;s been a while since I looked at eDirectory and while it&#8217;s a lot of LDAP, the servers were also running the Netware Core Protocol (NCP). I noticed that there wasn&#8217;t any NCP support in Nmap so I decided that I would implement some basic support. I ended up writing a NCP library and the following two scripts:</p>
+<ul>
+<li>ncp-enum-users &#8211; enumerates eDirectory users</li>
+<li>ncp-serverinfo &#8211; lists some basic server information</li>
+</ul>
+<p>The scripts should work against NCP running on both Netware, Linux and Windows. Here&#8217;s some sample output from both scripts:</p>
+<pre>| ncp-serverinfo:
+|   Server name: LINUX-L84T
+|   Tree Name: CQURE-TREE
+|   OS Version: 5.70 (rev 7)
+|   Product version: 6.50 (rev 7)
+|   OS Language ID: 4
+|   Addresses
+|     10.0.200.33 524/udp
+|     10.0.200.33 524/tcp
+|   Mounts
+|     SYS
+|     ADMIN
+|_    _ADMIN</pre>
+<pre>| ncp-enum-users:
+|   CN=admin.O=cqure
+|   CN=cawi.OU=finance.O=cqure
+|   CN=linux-l84tadmin.O=cqure
+|   CN=nist.OU=hr.O=cqure
+|   CN=novlxregd.O=cqure
+|   CN=novlxsrvd.O=cqure
+|   CN=OESCommonProxy_linux-l84t.O=cqure
+|   CN=sasi.OU=hr.O=cqure
+|_  CN=wwwrun.O=cqure</pre>
+<p>In addition to the NCP scripts I wrote a LDAP script (ldap-novell-getpass) that extract the plain-text password of a given user, in case the &#8220;Allow admin to retrieve passwords&#8221; option is enabled in the password policy. On success, the script returns the following result:</p>
+<pre>| ldap-novell-getpass:
+|   Account: CN=patrik,OU=security,O=cqure
+|_  Password: foobar</pre>
+<p>All of the scripts have been committed to Nmap and are available through subversion.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F06%2Fusing-nmap-for-pentesting-edirectory%2F&amp;title=Using%20Nmap%20for%20pentesting%20eDirectory" id="wpa2a_10"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/06/using-nmap-for-pentesting-edirectory/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Using Nmap to audit your MySQL database</title>
+		<link>http://www.cqure.net/wp/2011/06/using-nmap-to-audit-your-mysql-database/</link>
+		<comments>http://www.cqure.net/wp/2011/06/using-nmap-to-audit-your-mysql-database/#comments</comments>
+		<pubDate>Sun, 05 Jun 2011 18:54:02 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[audit]]></category>
+		<category><![CDATA[benchmark]]></category>
+		<category><![CDATA[cis]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[rulebase]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=439</guid>
+		<description><![CDATA[I&#8217;ve been working on a Nmap script for auditing MySQL databases against the CIS 1.0.2 benchmark for a while. I haven&#8217;t committed it to subversion yet, but it&#8217;s available to download for anyone who feels up to testing it. While it isn&#8217;t perfect nor does it contain all CIS controls, it provides Nmap users with [...]]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve been working on a Nmap script for auditing MySQL databases against the CIS 1.0.2 benchmark for a while. I haven&#8217;t committed it to subversion yet, but it&#8217;s available to download for anyone who feels up to testing it. While it isn&#8217;t perfect nor does it contain all CIS controls, it provides Nmap users with the possibility to quickly scan a database to see whether it complies with the CIS recommendations or not.</p>
+<p><span id="more-439"></span>The script is comprised of two parts; the engine and the rulebase. The engine (mysql-audit.nse) simply reads the rulebase (mysql-cis.audit) which contains all of the checks. The rulebase is quite simple and contains a few supporting functions making it trivial to add more rules to it.</p>
+<p>The script and rulebase can be downloaded from <a href="http://seclists.org/nmap-dev/2011/q2/814">nmap-dev</a> and the files need to be copied to the correct directories in order to run. The script file (mysql-audit.nse) goes into the nmap script directory and the audit file could really go anywhere but I&#8217;ve copied it into the nselib/data directory.</p>
+<p>In order to run, the script needs the following parameters:</p>
+<ol>
+<li>the hostname against which it&#8217;s supposed to run</li>
+<li>the port on which the MySQL database is running</li>
+<li>the username and password of a privileged account (eg. the MySQL root account)</li>
+</ol>
+<p>The following command (contains line breaks for readability) instructs Nmap to scan the database at 1.2.3.4 on port 3306 using the username root and password foobar:</p>
+<pre lang="bash">nmap -p 3306 1.2.3.4 --script mysql-audit \
+--script-args "mysql-audit.filename='nselib/data/mysql-cis.audit'\
+,mysql-audit.username='root',mysql-audit.password='foobar'"</pre>
+<p>The result should look something similar to this:</p>
+<pre>| mysql-audit:
+|   CIS MySQL Benchmark v1.0.2
+|       3.1: Skip symbolic links =&gt; PASS
+|       3.2: Logs not on system partition =&gt; PASS
+|       3.2: Logs not on database partition =&gt; PASS
+|       4.1: Supported version of MySQL =&gt; REVIEW
+|         Version: 5.1.54-1ubuntu4
+|       4.4: Remove test database =&gt; PASS
+|       4.5: Change admin account name =&gt; FAIL
+|       4.7: Verify Secure Password Hashes =&gt; PASS
+|       4.9: Wildcards in user hostname =&gt; FAIL
+|         The following users were found with wildcards in hostname
+|           root
+|           super
+|           super2
+|       4.10: No blank passwords =&gt; PASS
+.
+.
+.</pre>
+<p>I&#8217;m interested in both bug reports and success stories, so let me know of your results.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F06%2Fusing-nmap-to-audit-your-mysql-database%2F&amp;title=Using%20Nmap%20to%20audit%20your%20MySQL%20database" id="wpa2a_12"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/06/using-nmap-to-audit-your-mysql-database/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Pulling Cisco configs with Nmap</title>
+		<link>http://www.cqure.net/wp/2011/02/pulling-cisco-configs-with-nmap/</link>
+		<comments>http://www.cqure.net/wp/2011/02/pulling-cisco-configs-with-nmap/#comments</comments>
+		<pubDate>Tue, 22 Feb 2011 19:16:55 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[cisco]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[ios]]></category>
+		<category><![CDATA[lua]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[nse]]></category>
+		<category><![CDATA[script]]></category>
+		<category><![CDATA[snmp]]></category>
+		<category><![CDATA[tftp]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=433</guid>
+		<description><![CDATA[A few hours ago I committed a new script created by Vikas Singhal to Nmap. It implements the functionality to initiate a tftp transfer of a Cisco configuration through SNMP. In order to do so, the device obviously needs to support this functionality, and you need to know the private SNMP-community string. The script can [...]]]></description>
+			<content:encoded><![CDATA[<p>A few hours ago I committed a new script created by Vikas Singhal to Nmap. It implements the functionality to initiate a tftp transfer of a Cisco configuration through SNMP. In order to do so, the device obviously needs to support this functionality, and you need to know the private SNMP-community string.</p>
+<p>The script can either save the configuration to a file in a directory specified as a script argument or displays it on screen. In order to achieve this, I&#8217;ve contributed with a minimal tftp server, implemented as a Nmap NSE library. This eliminates the need to setup and configure a separate tftp-server as it&#8217;s all being taken care of transparently by Nmap.</p>
+<p>In order to try it out you can either update from subversion or download the <a href="http://nmap.org/svn/nselib/tftp.lua">tftp</a> library and the <a href="http://nmap.org/svn/scripts/snmp-ios-config.nse">snmp-ios-config</a> script and place them in nselib and the scripts directory. For more information on how to run the script, check out the <a href="http://nmap.org/nsedoc/scripts/snmp-ios-config.html">documentation</a>.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F02%2Fpulling-cisco-configs-with-nmap%2F&amp;title=Pulling%20Cisco%20configs%20with%20Nmap" id="wpa2a_14"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/02/pulling-cisco-configs-with-nmap/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Nmap mssql scripts feature boost</title>
+		<link>http://www.cqure.net/wp/2011/02/nmap-mssql-scripts-feature-boost/</link>
+		<comments>http://www.cqure.net/wp/2011/02/nmap-mssql-scripts-feature-boost/#comments</comments>
+		<pubDate>Tue, 22 Feb 2011 18:52:03 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[Nmap]]></category>
+		<category><![CDATA[lua]]></category>
+		<category><![CDATA[microsoft sql server]]></category>
+		<category><![CDATA[ms sql]]></category>
+		<category><![CDATA[mssql]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[nse]]></category>
+		<category><![CDATA[ntlm]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=429</guid>
+		<description><![CDATA[Chris Woodbury and I have been working on some new exciting features and enhancements to the ms-sql scripts and library in Nmap lately. We&#8217;ve been working in a separate branch which will hopefully get merged to trunk really soon. Chris work has been of high quality and very inspiring! It got me to pick up [...]]]></description>
+			<content:encoded><![CDATA[<p>Chris Woodbury and I have been working on some new exciting features and enhancements to the ms-sql scripts and library in Nmap lately. We&#8217;ve been working in a separate branch which will hopefully get merged to trunk really soon. Chris work has been of high quality and very inspiring! It got me to pick up some of the stuff I meant to implement, but hadn&#8217;t got to, and has brought a number of new great ideas. For a good summary of changes consult the following nmap-dev mailing list <a href="http://seclists.org/nmap-dev/2011/q1/505">thread</a>.</p>
+<p>Among the many new features and enhancements I&#8217;m really happy to see are:</p>
+<ul>
+<li>Support for more precise version checking, by using the prelogin packet (same technique as SQLPing)</li>
+<li>Support for connections using named pipes, rather than tcp-sockets</li>
+<li>Support for integrated authentication (Ntlmv1) in addition to the existing SQL authentication</li>
+<li>Support for connecting to named instances in addition to specific tcp ports</li>
+<li>Support for running each of the ms-sql scripts against all instances detected by the discovery mechanisms</li>
+</ul>
+<p>If you would like to give the scripts a run they&#8217;re available from <a href="svn://svn.insecure.org/nmap-exp/patrik/nmap-mssql">here</a>, and will hopefully be merged to trunk really soon.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F02%2Fnmap-mssql-scripts-feature-boost%2F&amp;title=Nmap%20mssql%20scripts%20feature%20boost" id="wpa2a_16"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/02/nmap-mssql-scripts-feature-boost/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Nmap 5.50 is out</title>
+		<link>http://www.cqure.net/wp/2011/01/nmap-5-50-is-out/</link>
+		<comments>http://www.cqure.net/wp/2011/01/nmap-5-50-is-out/#comments</comments>
+		<pubDate>Fri, 28 Jan 2011 21:51:53 +0000</pubDate>
+		<dc:creator>patrik</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[hack]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[nse]]></category>
+		<category><![CDATA[pentest]]></category>
+		<category><![CDATA[scanning]]></category>
+		<category><![CDATA[scripts]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[testig]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=424</guid>
+		<description><![CDATA[Nmap 5.50 is out, make sure to check it out. It contains a lot of new NSE stuff, including support for broadcast, pre- and post-rules and most of the scripts I, and many others, have created during the last year. For more information check out the official post http://seclists.org/nmap-hackers/2011/0]]></description>
+			<content:encoded><![CDATA[<p>Nmap 5.50 is out, make sure to check it out. It contains a lot of new NSE stuff, including support for broadcast, pre- and post-rules and most of the scripts I, and many others, have created during the last year. For more information check out the official post <a href="http://seclists.org/nmap-hackers/2011/0">http://seclists.org/nmap-hackers/2011/0</a></p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2011%2F01%2Fnmap-5-50-is-out%2F&amp;title=Nmap%205.50%20is%20out" id="wpa2a_18"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2011/01/nmap-5-50-is-out/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>15 new nmap scripts</title>
+		<link>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/</link>
+		<comments>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/#comments</comments>
+		<pubDate>Sun, 08 Aug 2010 17:27:46 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[tools]]></category>
+		<category><![CDATA[bug]]></category>
+		<category><![CDATA[cve]]></category>
+		<category><![CDATA[domino]]></category>
+		<category><![CDATA[encryption]]></category>
+		<category><![CDATA[guessing]]></category>
+		<category><![CDATA[ibm]]></category>
+		<category><![CDATA[informix]]></category>
+		<category><![CDATA[lotus]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[nse]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[query]]></category>
+		<category><![CDATA[scan]]></category>
+		<category><![CDATA[scripts]]></category>
+		<category><![CDATA[server]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[tns]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=417</guid>
+		<description><![CDATA[I just posted 15 new nmap scripts to the nmap-dev mailing list. For anyone curios to check them out have a look over here. I&#8217;ve been working on these new scripts for a while and they add yet more database support to nmap allowing users to perform password guessing against both Oracle and Informix servers. [...]]]></description>
+			<content:encoded><![CDATA[<p>I just posted 15 new nmap scripts to the nmap-dev mailing list. For anyone curios to check them out have a look over <a href="http://seclists.org/nmap-dev/2010/q3/284">here</a>. I&#8217;ve been working on these new scripts for a while and they add yet more database support to nmap allowing users to perform password guessing against both Oracle and Informix servers. In addition custom SQL queries can be made to Informix servers directly from nmap.</p>
+<p>I&#8217;ve also created a number of scripts which can be suitable when pen testing Lotus Domino. These scripts include support for collecting Internet password hashes and user ID files. ID files can be collected both as an authenticated user from the person web view or unauthenticated using the vulnerability <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2006-5835">CVE-2006-5835</a>. Oh, and you can add Lotus Domino 8.5 to the list of vulnerable versions in that advisory. There are also two scripts that allow you to interact with the IBM Lotus Domino remote console. One script allows for password guessing, while the other one allows you to interact with the console ones your authenticated.</p>
+<p>There&#8217;s a tiny script in the zip file that supports querying for registered objects in a ORB Naming Service using the GIOP protocol.</p>
+<p>Last but not least I&#8217;ve created a framework for other password guessing scripts to use. The framework runs using multiple worker threads and does all the looping, iteration and other basic logic used by most of my previous brute scripts.</p>
+<p>The zip file included in the nmap-dev post can be downloaded from <a href="http://www.cqure.net/files/nmap_nse_20100808.zip">here</a>. Please help me out testing the scripts so that they can be added to the subversion version of nmap!</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2010%2F08%2F15-new-nmap-scripts%2F&amp;title=15%20new%20nmap%20scripts" id="wpa2a_20"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+	</channel>
+</rss>

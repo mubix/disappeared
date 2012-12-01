@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cqure.net &#187; Gentoo</title>
+	<atom:link href="http://www.cqure.net/wp/category/gentoo/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.cqure.net/wp</link>
+	<description></description>
+	<lastBuildDate>Thu, 19 Jul 2012 12:36:51 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=</generator>
+		<item>
+		<title>mod_security 2.0.3</title>
+		<link>http://www.cqure.net/wp/2006/11/mod_security-203/</link>
+		<comments>http://www.cqure.net/wp/2006/11/mod_security-203/#comments</comments>
+		<pubDate>Sun, 12 Nov 2006 13:15:13 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[Gentoo]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=40</guid>
+		<description><![CDATA[I installed mod_security 2.0.3 on one of my Gentoo servers the other day. As version 2 is not yet in portage I took the usual shortcut and copied and renamed one of the old ebuilds in to my portage overlay directory. This approach was not as succesfull as I hoped and resulted in &#8220;undefined symbol: [...]]]></description>
+			<content:encoded><![CDATA[<p>I installed mod_security 2.0.3 on one of my Gentoo servers the other day. As version 2 is not yet in portage I took the usual shortcut and copied and renamed one of the old ebuilds in to my portage overlay directory. This approach was not as succesfull as I hoped and resulted in &#8220;undefined symbol: msc_alert&#8221;. The reason became obvious when comparing the 2.0.3 release to the 1.9.4. The 1.9.4 basicaly contains a singe file mod_security.c which is compiled and installed by portage. The 2.0.3 release has a whole bunch of source files that need to be compiled before linking the apache module. I have made a quick-n-dirty hack in order to address this which seems to work for me. The new ebuild is available <a title="here" href="http://www.cqure.net/files/mod_security-2.0.3.ebuild">here</a> for anyone interested. The syntax of the 2 release has changed, which makes the old 99_mod_security.conf obsolete. I downloaded the core-rules package from <a title="here" href="http://www.modsecurity.org/download/modsecurity-core-rules_2.0-1.1.1.zip">here</a> and changed the 99_mod_security.conf to load all rules found in one directory like <a title="this" href="http://www.cqure.net/files/99_mod_security_conf">this</a>.</p>
+<p>The above information comes with the usual disclaimer and with no warranty of any kind. It may or may not work for your purposes.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2006%2F11%2Fmod_security-203%2F&amp;title=mod_security%202.0.3" id="wpa2a_2"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2006/11/mod_security-203/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

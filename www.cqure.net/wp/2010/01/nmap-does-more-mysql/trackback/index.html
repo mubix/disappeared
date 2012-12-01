@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>cqure.net  &raquo; Blog Archive   &raquo; Nmap does more MySQL</title>
+
+<meta name="generator" content="WordPress 3.4.1" /> <!-- leave this for stats -->
+
+<link rel="stylesheet" href="../../../../wp-content/themes/cqure2/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="../../../../feed/rss/index.html" />
+<link rel="alternate" type="text/xml" title="RSS .92" href="../../../../feed/rss/index.html" />
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="../../../../feed/atom/index.html" />
+<link rel="pingback" href="../../../../xmlrpc.php" />
+
+	<link rel='archives' title='July 2012' href='../../../../2012/07/index.html' />
+	<link rel='archives' title='May 2012' href='../../../../2012/05/index.html' />
+	<link rel='archives' title='August 2011' href='../../../../2011/08/index.html' />
+	<link rel='archives' title='June 2011' href='../../../../2011/06/index.html' />
+	<link rel='archives' title='February 2011' href='../../../../2011/02/index.html' />
+	<link rel='archives' title='January 2011' href='../../../../2011/01/index.html' />
+	<link rel='archives' title='August 2010' href='../../../08/index.html' />
+	<link rel='archives' title='May 2010' href='../../../05/index.html' />
+	<link rel='archives' title='March 2010' href='../../../03/index.html' />
+	<link rel='archives' title='February 2010' href='../../../02/index.html' />
+	<link rel='archives' title='January 2010' href='../../index.html' />
+	<link rel='archives' title='December 2009' href='../../../../2009/12/index.html' />
+	<link rel='archives' title='November 2009' href='../../../../2009/11/index.html' />
+	<link rel='archives' title='October 2009' href='../../../../2009/10/index.html' />
+	<link rel='archives' title='September 2009' href='../../../../2009/09/index.html' />
+	<link rel='archives' title='May 2009' href='../../../../2009/05/index.html' />
+	<link rel='archives' title='September 2008' href='../../../../2008/09/index.html' />
+	<link rel='archives' title='August 2008' href='../../../../2008/08/index.html' />
+	<link rel='archives' title='May 2008' href='../../../../2008/05/index.html' />
+	<link rel='archives' title='April 2008' href='../../../../2008/04/index.html' />
+	<link rel='archives' title='November 2007' href='../../../../2007/11/index.html' />
+	<link rel='archives' title='October 2007' href='../../../../2007/10/index.html' />
+	<link rel='archives' title='September 2007' href='../../../../2007/09/index.html' />
+	<link rel='archives' title='August 2007' href='../../../../2007/08/index.html' />
+	<link rel='archives' title='July 2007' href='../../../../2007/07/index.html' />
+	<link rel='archives' title='March 2007' href='../../../../2007/03/index.html' />
+	<link rel='archives' title='February 2007' href='../../../../2007/02/index.html' />
+	<link rel='archives' title='January 2007' href='../../../../2007/01/index.html' />
+	<link rel='archives' title='November 2006' href='../../../../2006/11/index.html' />
+	<link rel='archives' title='October 2006' href='../../../../2006/10/index.html' />
+	<link rel='archives' title='March 2006' href='../../../../2006/03/index.html' />
+	<link rel='archives' title='February 2006' href='../../../../2006/02/index.html' />
+	<link rel='archives' title='January 2006' href='../../../../2006/01/index.html' />
+
+<link rel="alternate" type="application/rss+xml" title="cqure.net &raquo; Nmap does more MySQL Comments Feed" href="../feed/index.html" />
+<link rel='stylesheet' id='A2A_SHARE_SAVE-css'  href='../../../../wp-content/plugins/add-to-any/addtoany.min.css?ver=1.4' type='text/css' media='all' />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js?ver=3.4.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../../../../wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='New scripts added to Nmap svn' href='../../new-scripts-added-to-nmap-svn/trackback/index.html' />
+<link rel='next' title='nfs-showmount total re-write' href='../../nfs-showmount-total-re-write/trackback/index.html' />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='../../../../index.html?p=332' />
+
+<script type="text/javascript"><!--
+var a2a_config=a2a_config||{},wpa2a={done:false,html_done:false,script_ready:false,script_load:function(){var a=document.createElement('script'),s=document.getElementsByTagName('script')[0];a.type='text/javascript';a.async=true;a.src='http://static.addtoany.com/menu/page.js';s.parentNode.insertBefore(a,s);wpa2a.script_load=function(){};},script_onready:function(){if(a2a.type=='page'){wpa2a.script_ready=true;if(wpa2a.html_done)wpa2a.init();}},init:function(){for(var i=0,el,target,targets=wpa2a.targets,length=targets.length;i<length;i++){el=document.getElementById('wpa2a_'+(i+1));target=targets[i];a2a_config.linkname=target.title;a2a_config.linkurl=target.url;if(el)a2a.init('page',{target:el});wpa2a.done=true;}}};a2a_config.tracking_callback=['ready',wpa2a.script_onready];
+//--></script>
+<script type="text/javascript">
+	swfobject.registerObject("wpFollowmeFlash", "9.0.0");
+</script>
+<style type="text/css">
+	.getflash { font-size:8px; }
+	.wp_followme_c2 {
+		position:fixed;
+		background:#59B7FF;
+		top:200px;
+		right:0px;
+		width:32px;
+		height:160px;
+		border:1px solid #FFFFFF;
+		color:#FFFFFF;
+	}
+</style>
+
+<!--[if IE]>
+<style type="text/css">
+.addtoany_list a img{filter:alpha(opacity=70)}
+.addtoany_list a:hover img,.addtoany_list a.addtoany_share_save img{filter:alpha(opacity=100)}
+</style>
+<![endif]-->
+</head>
+<body background="../../../../wp-content/themes/cqure2/images/eye.jpg">
+
+<div class="title"><a href="../../../../../wp.1">cqure.net</a></div>
+<div class="description"></div>
+<div id="page">
+<br>
+<div class="top-ad">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5587712415782238";
+//Link unit below logo 728x15
+google_ad_slot = "9173520977";
+google_ad_width = 728;
+google_ad_height = 15;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<!-- Start Obar -->
+
+	<div class="obar">
+<ul>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-5587712415782238";
+//120x600, created 11/8/07
+google_ad_slot = "9346871999";
+google_ad_width = 120;
+google_ad_height = 600;
+//--></script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</ul>
+	</div>
+
+<!-- End Obar -->
+
+	<div id="content" class="widecolumn">
+				
+  	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="../../new-scripts-added-to-nmap-svn/trackback/index.html" rel="prev">New scripts added to Nmap svn</a></div>
+			<div class="alignright"><a href="../../nfs-showmount-total-re-write/trackback/index.html" rel="next">nfs-showmount total re-write</a> &raquo;</div>
+		</div>
+	
+		<div class="post" id="post-332">
+			<h2><a href="index.html" rel="bookmark" title="Permanent Link: Nmap does more MySQL">Nmap does more MySQL</a></h2>
+	
+			<div class="entrytext">
+				<p>I&#8217;ve just added some code to my Nmap MySQL library that enables query support. With this code in place it&#8217;s possible to run queries against MySQL directly from a Nmap script. In order to illustrate this I&#8217;ve added three scripts: <a href="../../../../nmap-scripts/index.html">mysql-list-users</a>, <a href="../../../../nmap-scripts/index.html">mysql-list-databases</a> and <a href="../../../../nmap-scripts/index.html">mysql-show-variables</a>.</p>
+<p>While messing around with the library I also cleaned up the code for <a href="../../../../nmap-scripts/index.html">mysql-brute</a> and <a href="../../../../nmap-scripts/index.html">mysql-empty-password</a>. All of the scripts that query the database obviously require credentials to do so. These can be provided on the command line using script <a href="http://nmap.org/book/nse-usage.html">arguments</a> mysqluser and mysqlpassword or by running the mysql-brute or mysql-empty-password on the same time. There are dependencies set up so that the query scripts wait until these two scripts have collected the credentials. Here&#8217;s some sample output from the scripts &#8230;</p>
+<p><span id="more-332"></span>Starting Nmap 5.20 ( http://nmap.org ) at 2010-01-23 22:46 CET<br />
+NSE: Starting runlevel 2 (of 2) scan.<br />
+NSE: Script Scanning completed.<br />
+Nmap scan report for bubba (1.2.3.4)<br />
+Host is up (0.0044s latency).<br />
+PORT     STATE SERVICE<br />
+3306/tcp open  mysql<br />
+| mysql-empty-password:<br />
+|_  root account has empty password<br />
+| mysql-brute:<br />
+|   root:&lt;empty&gt; =&gt; Login Correct<br />
+|_  test:test =&gt; Login Correct<br />
+| mysql-list-users:<br />
+|   test<br />
+|   root<br />
+|   test2<br />
+|   album<br />
+|   debian-sys-maint<br />
+|   horde<br />
+|   mediatomb<br />
+|_  squeezecenter<br />
+| mysql-list-databases:<br />
+|   information_schema<br />
+|   mysql<br />
+|   horde<br />
+|   album<br />
+|   mediatomb<br />
+|_  squeezecenter<br />
+| mysql-show-variables:<br />
+|   auto_increment_increment: 1<br />
+|   auto_increment_offset: 1<br />
+|   automatic_sp_privileges: ON<br />
+|   back_log: 50<br />
+|   basedir: /usr/<br />
+|   binlog_cache_size: 32768<br />
+|   bulk_insert_buffer_size: 8388608<br />
+|   character_set_client: latin1<br />
+|   character_set_connection: latin1<br />
+|   character_set_database: latin1<br />
+|   character_set_filesystem: binary<br />
+|   character_set_results: latin1<br />
+|   character_set_server: latin1<br />
+|   character_set_system: utf8<br />
+|   character_sets_dir: /usr/share/mysql/charsets/<br />
+|   collation_connection: latin1_swedish_ci<br />
+|   collation_database: latin1_swedish_ci<br />
+|   collation_server: latin1_swedish_ci<br />
+|   completion_type: 0<br />
+|   concurrent_insert: 1<br />
+|   connect_timeout: 5<br />
+|   datadir: /var/lib/mysql/<br />
+|   date_format: %Y-%m-%d<br />
+|   datetime_format: %Y-%m-%d %H:%i:%s<br />
+|   default_week_format: 0<br />
+|   delay_key_write: ON<br />
+|   delayed_insert_limit: 100<br />
+|   delayed_insert_timeout: 300<br />
+|   delayed_queue_size: 1000<br />
+|   div_precision_increment: 4<br />
+|   keep_files_on_create: OFF<br />
+|   engine_condition_pushdown: OFF<br />
+|   expire_logs_days: 10<br />
+|   flush: OFF<br />
+|   flush_time: 0<br />
+|   ft_boolean_syntax: + -&gt;&lt;()~*:&#8221;"&amp;|<br />
+|   ft_max_word_len: 84<br />
+|   ft_min_word_len: 4<br />
+|   ft_query_expansion_limit: 20<br />
+|   ft_stopword_file: (built-in)<br />
+|   group_concat_max_len: 1024<br />
+|   have_archive: YES<br />
+|   have_bdb: NO<br />
+|   have_blackhole_engine: YES<br />
+|   have_compress: YES<br />
+|   have_crypt: YES<br />
+|   have_csv: YES<br />
+|   have_dynamic_loading: YES<br />
+|   have_example_engine: NO<br />
+|   have_federated_engine: YES<br />
+|   have_geometry: YES<br />
+|   have_innodb: DISABLED<br />
+|   have_isam: NO<br />
+|   have_merge_engine: YES<br />
+|   have_ndbcluster: DISABLED<br />
+|   have_openssl: DISABLED<br />
+|   have_ssl: DISABLED<br />
+|   have_query_cache: YES<br />
+|   have_raid: NO<br />
+|   have_rtree_keys: YES<br />
+|   have_symlink: YES<br />
+|   hostname: bubba<br />
+|   init_connect:<br />
+|   init_file:<br />
+|   init_slave:<br />
+|   innodb_additional_mem_pool_size: 1048576<br />
+|   innodb_autoextend_increment: 8<br />
+|   innodb_buffer_pool_awe_mem_mb: 0<br />
+|   innodb_buffer_pool_size: 8388608<br />
+|   innodb_checksums: ON<br />
+|   innodb_commit_concurrency: 0<br />
+|   innodb_concurrency_tickets: 500<br />
+|   innodb_data_file_path:<br />
+|   innodb_data_home_dir:<br />
+|   innodb_doublewrite: ON<br />
+|   innodb_fast_shutdown: 1<br />
+|   innodb_file_io_threads: 4<br />
+|   innodb_file_per_table: OFF<br />
+|   innodb_flush_log_at_trx_commit: 1<br />
+|   innodb_flush_method:<br />
+|   innodb_force_recovery: 0<br />
+|   innodb_lock_wait_timeout: 50<br />
+|   innodb_locks_unsafe_for_binlog: OFF<br />
+|   innodb_log_arch_dir:<br />
+|   innodb_log_archive: OFF<br />
+|   innodb_log_buffer_size: 1048576<br />
+|   innodb_log_file_size: 5242880<br />
+|   innodb_log_files_in_group: 2<br />
+|   innodb_log_group_home_dir:<br />
+|   innodb_max_dirty_pages_pct: 90<br />
+|   innodb_max_purge_lag: 0<br />
+|   innodb_mirrored_log_groups: 1<br />
+|   innodb_open_files: 300<br />
+|   innodb_rollback_on_timeout: OFF<br />
+|   innodb_support_xa: ON<br />
+|   innodb_sync_spin_loops: 20<br />
+|   innodb_table_locks: ON<br />
+|   innodb_thread_concurrency: 8<br />
+|   innodb_thread_sleep_delay: 10000<br />
+|   interactive_timeout: 28800<br />
+|   join_buffer_size: 131072<br />
+|   key_buffer_size: 16777216<br />
+|   key_cache_age_threshold: 300<br />
+|   key_cache_block_size: 1024<br />
+|   key_cache_division_limit: 100<br />
+|   language: /usr/share/mysql/english/<br />
+|   large_files_support: ON<br />
+|   large_page_size: 0<br />
+|   large_pages: OFF<br />
+|   lc_time_names: en_US<br />
+|   license: GPL<br />
+|   local_infile: ON<br />
+|   locked_in_memory: OFF<br />
+|   log: OFF<br />
+|   log_bin: OFF<br />
+|   log_bin_trust_function_creators: OFF<br />
+|   log_error:<br />
+|   log_queries_not_using_indexes: OFF<br />
+|   log_slave_updates: OFF<br />
+|   log_slow_queries: OFF<br />
+|   log_warnings: 1<br />
+|   long_query_time: 10<br />
+|   low_priority_updates: OFF<br />
+|   lower_case_file_system: OFF<br />
+|   lower_case_table_names: 0<br />
+|   max_allowed_packet: 16776192<br />
+|   max_binlog_cache_size: 4294967295<br />
+|   max_binlog_size: 104857600<br />
+|   max_connect_errors: 10<br />
+|   max_connections: 100<br />
+|   max_delayed_threads: 20<br />
+|   max_error_count: 64<br />
+|   max_heap_table_size: 16777216<br />
+|   max_insert_delayed_threads: 20<br />
+|   max_join_size: 18446744073709551615<br />
+|   max_length_for_sort_data: 1024<br />
+|   max_prepared_stmt_count: 16382<br />
+|   max_relay_log_size: 0<br />
+|   max_seeks_for_key: 4294967295<br />
+|   max_sort_length: 1024<br />
+|   max_sp_recursion_depth: 0<br />
+|   max_tmp_tables: 32<br />
+|   max_user_connections: 0<br />
+|   max_write_lock_count: 4294967295<br />
+|   multi_range_count: 256<br />
+|   myisam_data_pointer_size: 6<br />
+|   myisam_max_sort_file_size: 2147483647<br />
+|   myisam_recover_options: BACKUP<br />
+|   myisam_repair_threads: 1<br />
+|   myisam_sort_buffer_size: 8388608<br />
+|   myisam_stats_method: nulls_unequal<br />
+|   ndb_autoincrement_prefetch_sz: 32<br />
+|   ndb_force_send: ON<br />
+|   ndb_use_exact_count: ON<br />
+|   ndb_use_transactions: ON<br />
+|   ndb_cache_check_time: 0<br />
+|   ndb_connectstring:<br />
+|   net_buffer_length: 16384<br />
+|   net_read_timeout: 30<br />
+|   net_retry_count: 10<br />
+|   net_write_timeout: 60<br />
+|   new: OFF<br />
+|   old_passwords: OFF<br />
+|   open_files_limit: 1024<br />
+|   optimizer_prune_level: 1<br />
+|   optimizer_search_depth: 62<br />
+|   pid_file: /var/run/mysqld/mysqld.pid<br />
+|   port: 3306<br />
+|   preload_buffer_size: 32768<br />
+|   profiling: OFF<br />
+|   profiling_history_size: 15<br />
+|   protocol_version: 10<br />
+|   query_alloc_block_size: 8192<br />
+|   query_cache_limit: 1048576<br />
+|   query_cache_min_res_unit: 4096<br />
+|   query_cache_size: 16777216<br />
+|   query_cache_type: ON<br />
+|   query_cache_wlock_invalidate: OFF<br />
+|   query_prealloc_size: 8192<br />
+|   range_alloc_block_size: 2048<br />
+|   read_buffer_size: 131072<br />
+|   read_only: OFF<br />
+|   read_rnd_buffer_size: 262144<br />
+|   relay_log_purge: ON<br />
+|   relay_log_space_limit: 0<br />
+|   rpl_recovery_rank: 0<br />
+|   secure_auth: OFF<br />
+|   secure_file_priv:<br />
+|   server_id: 0<br />
+|   skip_external_locking: ON<br />
+|   skip_networking: OFF<br />
+|   skip_show_database: OFF<br />
+|   slave_compressed_protocol: OFF<br />
+|   slave_load_tmpdir: /tmp/<br />
+|   slave_net_timeout: 3600<br />
+|   slave_skip_errors: OFF<br />
+|   slave_transaction_retries: 10<br />
+|   slow_launch_time: 2<br />
+|   socket: /var/run/mysqld/mysqld.sock<br />
+|   sort_buffer_size: 2097144<br />
+|   sql_big_selects: ON<br />
+|   sql_mode:<br />
+|   sql_notes: ON<br />
+|   sql_warnings: OFF<br />
+|   ssl_ca:<br />
+|   ssl_capath:<br />
+|   ssl_cert:<br />
+|   ssl_cipher:<br />
+|   ssl_key:<br />
+|   storage_engine: MyISAM<br />
+|   sync_binlog: 0<br />
+|   sync_frm: ON<br />
+|   system_time_zone: CET<br />
+|   table_cache: 64<br />
+|   table_lock_wait_timeout: 50<br />
+|   table_type: MyISAM<br />
+|   thread_cache_size: 8<br />
+|   thread_stack: 131072<br />
+|   time_format: %H:%i:%s<br />
+|   time_zone: SYSTEM<br />
+|   timed_mutexes: OFF<br />
+|   tmp_table_size: 33554432<br />
+|   tmpdir: /tmp<br />
+|   transaction_alloc_block_size: 8192<br />
+|   transaction_prealloc_size: 4096<br />
+|   tx_isolation: REPEATABLE-READ<br />
+|   updatable_views_with_limit: YES<br />
+|   version: 5.0.51a-17~bpo40+1<br />
+|   version_comment: (Debian)<br />
+|   version_compile_machine: powerpc<br />
+|   version_compile_os: debian-linux-gnu<br />
+|_  wait_timeout: 28800</p>
+<div class="addtoany_share_save_container"><div class="a2a_kit a2a_target addtoany_list" id="wpa2a_1"><a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save"><img src="../../../../wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></div>
+<script type="text/javascript"><!--
+wpa2a.script_load();
+//--></script>
+</div>	
+					
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+						 
+						on Saturday, January 23rd, 2010 at 5:48 pm						and is filed under <a href="../../../../category/tools/index.html" title="View all posts in tools" rel="category tag">tools</a>.
+						You can follow any responses to this entry through the <a href='../feed/index.html'>RSS 2.0</a> feed. 
+						
+													Responses are currently closed, but you can <a href="index.html" rel="trackback">trackback</a> from your own site.
+						
+												
+					</small>
+				</p>
+	
+			</div>
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+
+  		<!-- If comments are closed. -->
+		<p class="nocomments">Comments are closed.</p>
+		
+	
+
+	
+		
+	</div>
+
+
+<hr />
+<div id="footer">
+	<p>
+		cqure.net is proudly powered by 
+		<a href="http://wordpress.org">WordPress</a>
+		<br /><a href="feed:http://www.cqure.net/wp/feed/">Entries (RSS)</a>
+		and <a href="feed:http://www.cqure.net/wp/comments/feed/">Comments (RSS)</a>.
+		<!-- 16 queries. 0.650 seconds. -->
+	</p>
+</div>
+</div>
+
+<!-- Gorgeous design by Michael Heilemann - http://binarybonsai.com/kubrick/ -->
+
+		
+<script type="text/javascript"><!--
+wpa2a.targets=[
+{title:'Nmap does more MySQL',url:'http://www.cqure.net/wp/2010/01/nmap-does-more-mysql/'}];
+wpa2a.html_done=true;if(wpa2a.script_ready&&!wpa2a.done)wpa2a.init();wpa2a.script_load();
+//--></script>
+
+<div style="position:relative;">
+	<div class="wp_followme_c2">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="32" height="160" id="wpFollowmeFlash">
+			<param name="movie" value="http://www.cqure.net/wp/wp-content/plugins/wp-followme/flash/wp_followme.swf" />
+			<param name="allowfullscreen" value="false" />
+			<param name="allowscriptaccess" value="always" />
+			<param name="flashvars" value="twit_icon=http://www.cqure.net/wp/wp-content/plugins/wp-followme/icons/1.png&amp;turl=http://twitter.com/nevdull77&amp;twitmsg=Follow Me&amp;twitmsgcolor=FFFFFF&amp;iconbgcolor=FFFFFF" />
+			<param name="bgcolor" value="#59B7FF" />
+			<!--[if !IE]>-->
+			<object type="application/x-shockwave-flash" data="../../../../wp-content/plugins/wp-followme/flash/wp_followme.swf" width="32" height="160">
+				<param name="allowfullscreen" value="false" />
+				<param name="allowscriptaccess" value="always" />
+				<param name="flashvars" value="twit_icon=http://www.cqure.net/wp/wp-content/plugins/wp-followme/icons/1.png&amp;turl=http://twitter.com/nevdull77&amp;twitmsg=Follow Me&amp;twitmsgcolor=FFFFFF&amp;iconbgcolor=FFFFFF" />
+				<param name="bgcolor" value="#59B7FF" />
+				<!--<![endif]-->
+				<div class="getflash">
+					<a rel="nofollow" href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+									</div><!--[if !IE]>-->
+			</object> <!--<![endif]-->
+		</object>
+	</div>
+</div>
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3096101-2";
+urchinTracker();
+</script>
+
+</body>
+</html>

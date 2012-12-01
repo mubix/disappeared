@@ -1,0 +1,215 @@
+diff -u -P linux-2.4.18_vanilla/drivers/net/wireless/hermes.h linux/drivers/net/wireless/hermes.h
+--- linux-2.4.18_vanilla/drivers/net/wireless/hermes.h	Tue Feb 26 13:18:32 2002
++++ linux/drivers/net/wireless/hermes.h	Tue Feb 26 15:31:39 2002
+@@ -230,25 +230,23 @@
+ 	u16 RxDiscards_WEPExcluded;
+ } __attribute__ ((packed));
+ 
++/* patch file by logan@sandsriver.com */
++/* modified by patrik@cqure.net */
+ /* Grabbed from wlan-ng - Thanks Mark... - Jean II
+  * This is the result of a scan inquiry command */
+ /* Structure describing info about an Access Point */
+ struct hermes_scan_apinfo {
+ 	u16 channel;		/* Channel where the AP sits */
+-	u16 noise;		/* Noise level */
+-	u16 level;		/* Signal level */
++  	u16 level;		/* Signal level */
++  	u16 noise;		/* Noise level */
+ 	u8 bssid[ETH_ALEN];	/* MAC address of the Access Point */
+-	u16 beacon_interv;	/* Beacon interval ? */
+-	u16 capabilities;	/* Capabilities ? */
++       u16 beacon_interv;      /* Beacon Interval ? */
++       u16 capabilities;	/* Capabilities ? */
++       u16 essidlen;           /* ESSID length */
+ 	u8 essid[32];		/* ESSID of the network */
+-	u8 rates[10];		/* Bit rate supported */
+-	u16 proberesp_rate;	/* ???? */
+ } __attribute__ ((packed));
+ /* Container */
+ struct hermes_scan_frame {
+-	u16 rsvd;                   /* ??? */
+-	u16 scanreason;             /* ??? */
+-	struct hermes_scan_apinfo aps[35];        /* Scan result */
++  struct hermes_scan_apinfo aps[35];        /* Scan result */
+ } __attribute__ ((packed));
+ 
+ #ifdef __KERNEL__
+diff -u -P linux-2.4.18_vanilla/drivers/net/wireless/orinoco.c linux/drivers/net/wireless/orinoco.c
+--- linux-2.4.18_vanilla/drivers/net/wireless/orinoco.c	Tue Feb 26 13:00:44 2002
++++ linux/drivers/net/wireless/orinoco.c	Tue Feb 26 15:31:39 2002
+@@ -300,6 +300,8 @@
+ #include <linux/etherdevice.h>
+ #include <linux/wireless.h>
+ #include <linux/list.h>
++#include <linux/netlink.h>
++#include <net/sock.h>
+ 
+ #include "hermes.h"
+ #include "hermes_rid.h"
+@@ -420,6 +422,12 @@
+ 	u16 qual, signal, noise;
+ } __attribute__ ((packed)) orinoco_commsqual_t;
+ 
++/* sniffing stuff added by Patrik Karlsson, patrik@cqure.net 20020201 */
++/* Netlink interface(s) */
++static struct sock	*nl_indicate = NULL;
++#define APSTATUS_NL_SOCK_IND NETLINK_USERSOCK
++#define APSTATUS_NL_MCAST_GRP_SNIFF 0x00000002
++
+ /*
+  * Function prototypes
+  */
+@@ -478,6 +486,9 @@
+ static int orinoco_proc_init(void);
+ static void orinoco_proc_cleanup(void);
+ 
++/* dummy functions */
++void p80211ind_rx(struct sock *sk, int len);
++
+ /*
+  * Inline functions
+  */
+@@ -1238,6 +1249,40 @@
+ 	}
+ 	
+ 	switch (le16_to_cpu(info.type)) {
++
++	  /* 
++	   * do the actual scanning, 20020201 patrik@cqure.net
++	   */
++	case HERMES_INQ_SCAN: {
++	  struct hermes_scan_frame scan;
++	  struct sk_buff *skb;
++	  int len = le16_to_cpu(info.len) - 1;
++
++	  /* len seems to be 25 even if its longer */
++	  if ( len >= 25 )
++	    len = sizeof(struct hermes_scan_apinfo);
++
++	  hermes_read_words(hw, HERMES_DATA1, (void *)&scan, len);
++
++	  if ( ( skb = alloc_skb(len, GFP_ATOMIC) ) == NULL ) {
++	    DEBUG(2, "alloc_skb failed trying to allocate %d bytes\n", len);
++	    return;
++	  }
++
++	  skb_put(skb, len);
++	  memcpy(skb->data, &scan, len);
++
++
++	  /* create a netlink socket to listen to */
++	  nl_indicate =  netlink_kernel_create( APSTATUS_NL_SOCK_IND, &p80211ind_rx);
++
++	  netlink_broadcast(nl_indicate, skb, 0, APSTATUS_NL_MCAST_GRP_SNIFF, 
++			    GFP_ATOMIC);
++
++	  sock_release(nl_indicate->socket);
++
++
++	}
+ 	case HERMES_INQ_TALLIES: {
+ 		struct hermes_tallies_frame tallies;
+ 		struct iw_statistics *wstats = &priv->wstats;
+@@ -3811,6 +3856,16 @@
+ 			      total, buf);
+ }
+ 
++/*
++ * Empty dummy function, theres nothing to see here
++ */
++static int
++orinoco_proc_get_hermes_cmds(char *page, char **start, off_t requested_offset,
++			   int requested_len, int *eof, void *data)
++{
++  return 0;
++}
++
+ /* initialise the /proc subsystem for the hermes driver, creating the
+  * separate entries */
+ static int
+@@ -3833,6 +3888,43 @@
+ 	return err;
+ }
+ 
++/* copy-paste linux-wlan-ng */
++/* userland data not supported */
++void p80211ind_rx(struct sock *sk, int len)
++{
++	return;
++}
++
++
++int
++orinoco_send_scan_cmd(struct orinoco_private *priv) {
++
++  hermes_inquire(&priv->hw, HERMES_INQ_SCAN);
++  
++  return 0;
++}
++
++int
++orinoco_proc_set_hermes_cmds(struct file *file, const char *buffer,
++		   unsigned long count, void *context) 
++{
++  char buf[256];
++
++  /* copy - paste code from elsewere in kernel */
++  if (count > 250)
++    return -EPERM;
++  if (copy_from_user(buf, buffer, count))
++    return -EFAULT;
++  
++  buf[count] = 0;
++  
++  if (!strncmp(buf, "apscan", 6)) {
++    orinoco_send_scan_cmd(context);
++  }
++
++  return -EL3RST;
++}
++
+ int
+ orinoco_proc_dev_init(struct orinoco_private *priv)
+ {
+@@ -3863,6 +3955,17 @@
+ 		goto fail;
+ 	}
+ 
++	priv->dir_cmds = NULL;
++	priv->dir_cmds = create_proc_read_entry("cmds", S_IFREG | S_IRUGO,
++						priv->dir_dev, orinoco_proc_get_hermes_cmds, priv);
++	if (priv->dir_cmds == NULL) {
++		printk(KERN_ERR "Unable to initialise /proc/hermes/%s/cmds.\n",  dev->name);
++		goto fail;
++	}
++
++	priv->dir_cmds->write_proc = orinoco_proc_set_hermes_cmds;
++
++
+ 	return 0;
+  fail:
+ 	orinoco_proc_dev_cleanup(priv);
+diff -u -P linux-2.4.18_vanilla/drivers/net/wireless/orinoco.h linux/drivers/net/wireless/orinoco.h
+--- linux-2.4.18_vanilla/drivers/net/wireless/orinoco.h	Tue Feb 26 13:00:44 2002
++++ linux/drivers/net/wireless/orinoco.h	Tue Feb 26 15:31:39 2002
+@@ -89,6 +89,7 @@
+ 	struct proc_dir_entry *dir_dev;
+ 	struct proc_dir_entry *dir_regs;
+ 	struct proc_dir_entry *dir_recs;
++	struct proc_dir_entry *dir_cmds;
+ };
+ 
+ /*====================================================================*/
+diff -u -P linux-2.4.18_vanilla/drivers/net/wireless/orinoco_plx.c linux/drivers/net/wireless/orinoco_plx.c
+--- linux-2.4.18_vanilla/drivers/net/wireless/orinoco_plx.c	Tue Feb 26 13:00:44 2002
++++ linux/drivers/net/wireless/orinoco_plx.c	Tue Feb 26 15:31:39 2002
+@@ -394,7 +394,7 @@
+ 	name:"orinoco_plx",
+ 	id_table:orinoco_plx_pci_id_table,
+ 	probe:orinoco_plx_init_one,
+-	remove:__devexit_p(orinoco_plx_remove_one),
++	remove:orinoco_plx_remove_one,
+ 	suspend:0,
+ 	resume:0
+ };

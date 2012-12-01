@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cqure.net &#187; cqure.net</title>
+	<atom:link href="http://www.cqure.net/wp/category/cqure-net/feed/" rel="self" type="application/rss+xml" />
+	<link>http://www.cqure.net/wp</link>
+	<description></description>
+	<lastBuildDate>Thu, 19 Jul 2012 12:36:51 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=</generator>
+		<item>
+		<title>15 new nmap scripts</title>
+		<link>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/</link>
+		<comments>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/#comments</comments>
+		<pubDate>Sun, 08 Aug 2010 17:27:46 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[tools]]></category>
+		<category><![CDATA[bug]]></category>
+		<category><![CDATA[cve]]></category>
+		<category><![CDATA[domino]]></category>
+		<category><![CDATA[encryption]]></category>
+		<category><![CDATA[guessing]]></category>
+		<category><![CDATA[ibm]]></category>
+		<category><![CDATA[informix]]></category>
+		<category><![CDATA[lotus]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[nse]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[query]]></category>
+		<category><![CDATA[scan]]></category>
+		<category><![CDATA[scripts]]></category>
+		<category><![CDATA[server]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[tns]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=417</guid>
+		<description><![CDATA[I just posted 15 new nmap scripts to the nmap-dev mailing list. For anyone curios to check them out have a look over here. I&#8217;ve been working on these new scripts for a while and they add yet more database support to nmap allowing users to perform password guessing against both Oracle and Informix servers. [...]]]></description>
+			<content:encoded><![CDATA[<p>I just posted 15 new nmap scripts to the nmap-dev mailing list. For anyone curios to check them out have a look over <a href="http://seclists.org/nmap-dev/2010/q3/284">here</a>. I&#8217;ve been working on these new scripts for a while and they add yet more database support to nmap allowing users to perform password guessing against both Oracle and Informix servers. In addition custom SQL queries can be made to Informix servers directly from nmap.</p>
+<p>I&#8217;ve also created a number of scripts which can be suitable when pen testing Lotus Domino. These scripts include support for collecting Internet password hashes and user ID files. ID files can be collected both as an authenticated user from the person web view or unauthenticated using the vulnerability <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2006-5835">CVE-2006-5835</a>. Oh, and you can add Lotus Domino 8.5 to the list of vulnerable versions in that advisory. There are also two scripts that allow you to interact with the IBM Lotus Domino remote console. One script allows for password guessing, while the other one allows you to interact with the console ones your authenticated.</p>
+<p>There&#8217;s a tiny script in the zip file that supports querying for registered objects in a ORB Naming Service using the GIOP protocol.</p>
+<p>Last but not least I&#8217;ve created a framework for other password guessing scripts to use. The framework runs using multiple worker threads and does all the looping, iteration and other basic logic used by most of my previous brute scripts.</p>
+<p>The zip file included in the nmap-dev post can be downloaded from <a href="http://www.cqure.net/files/nmap_nse_20100808.zip">here</a>. Please help me out testing the scripts so that they can be added to the subversion version of nmap!</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2010%2F08%2F15-new-nmap-scripts%2F&amp;title=15%20new%20nmap%20scripts" id="wpa2a_2"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2010/08/15-new-nmap-scripts/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Nmap SIP version script</title>
+		<link>http://www.cqure.net/wp/2009/11/nmap-sip-version-script/</link>
+		<comments>http://www.cqure.net/wp/2009/11/nmap-sip-version-script/#comments</comments>
+		<pubDate>Sat, 21 Nov 2009 16:06:53 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[discovery]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[network]]></category>
+		<category><![CDATA[nmap]]></category>
+		<category><![CDATA[scan]]></category>
+		<category><![CDATA[sip]]></category>
+		<category><![CDATA[version]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=138</guid>
+		<description><![CDATA[As I&#8217;ve been tinkering with VoIP for a while I decided to write a version detection script for Nmap. It&#8217;s my first stab at both Nmap scripting and the Lua programming language so don&#8217;t expect to much. The limited tests I have made show that it does a reasonable job and returns any version information [...]]]></description>
+			<content:encoded><![CDATA[<p>As I&#8217;ve been tinkering with VoIP for a while I decided to write a version detection script for Nmap. It&#8217;s my first stab at both Nmap scripting and the Lua programming language so don&#8217;t expect to much. The limited tests I have made show that it does a reasonable job and returns any version information present in the server response. The script can be found <a href="http://www.cqure.net/tools/sip-version.nse.zip">here</a>.</p>
+<p><span id="more-138"></span>The script is quite simple and works by sending a SIP <em>OPTION</em> request to the server and then retrieves the value returned in either the <em>User-Agent</em> or <em>Server</em> header.</p>
+<p>In order to &#8220;activate&#8221; it:</p>
+<ol>
+<li>Decompress the zip archive and copy <em>sip-version.nse</em> to the script directory eg. /usr/share/nmap/scripts</li>
+<li>As root, run the following command:
+<pre lang="bash">nmap --script-update</pre>
+</li>
+</ol>
+<p>To test it, simply run a version scan against port 5060 on a SIP server:</p>
+<pre lang="bash">nmap -sV -sU sip.domain.suffix -p 5060</pre>
+<p>If it worked it should return something like this:</p>
+<blockquote><p>Interesting ports on x.x.x.x:<br />
+PORT     STATE         SERVICE VERSION<br />
+5060/udp open|filtered sip     3CXPhoneSystem 8.0.9844.0</p>
+<p>Interesting ports on y.y.y.y:<br />
+PORT     STATE         SERVICE VERSION<br />
+5060/udp open|filtered sip     Asterisk PBX</p></blockquote>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2009%2F11%2Fnmap-sip-version-script%2F&amp;title=Nmap%20SIP%20version%20script" id="wpa2a_4"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2009/11/nmap-sip-version-script/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>MSSQLScan release 0.8.4</title>
+		<link>http://www.cqure.net/wp/2009/09/mssqlscan-release-0-8-4/</link>
+		<comments>http://www.cqure.net/wp/2009/09/mssqlscan-release-0-8-4/#comments</comments>
+		<pubDate>Mon, 21 Sep 2009 16:28:56 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[discover]]></category>
+		<category><![CDATA[instances]]></category>
+		<category><![CDATA[microsoft sql server]]></category>
+		<category><![CDATA[ms sql]]></category>
+		<category><![CDATA[scan]]></category>
+		<category><![CDATA[sql2005]]></category>
+		<category><![CDATA[sql2008]]></category>
+		<category><![CDATA[sqlserver]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=90</guid>
+		<description><![CDATA[The new release adds support for a target file containing a list of IP&#8217;s to scan. This may be useful for enumerating instance names from a number of known SQL Server addresses. Get the new version here.]]></description>
+			<content:encoded><![CDATA[<p>The new release adds support for a target file containing a list of IP&#8217;s to scan. This may be useful for enumerating instance names from a number of known SQL Server addresses. Get the new version <a href="http://www.cqure.net/tools/mssqlscan-bin-0_8_4.zip">here</a>.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2009%2F09%2Fmssqlscan-release-0-8-4%2F&amp;title=MSSQLScan%20release%200.8.4" id="wpa2a_6"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2009/09/mssqlscan-release-0-8-4/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>I&#039;m on Twitter &#8230;</title>
+		<link>http://www.cqure.net/wp/2009/05/im-on-twitter/</link>
+		<comments>http://www.cqure.net/wp/2009/05/im-on-twitter/#comments</comments>
+		<pubDate>Tue, 19 May 2009 19:56:41 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=78</guid>
+		<description><![CDATA[&#8230; since a while back and actually managing to post some tweets every now and then. I&#8217;m attaching a link to my profile.]]></description>
+			<content:encoded><![CDATA[<p>&#8230; since a while back and actually managing to post some tweets every now and then. I&#8217;m attaching a link to my profile.</p>
+<p><a href="http://twitter.com/nevdull77"><img class="alignnone size-full wp-image-83" title="happybirds1small21" src="http://www.cqure.net/wp/wp-content/uploads/2009/05/happybirds1small21.png" alt="happybirds1small21" width="124" height="128" /></a></p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2009%2F05%2Fim-on-twitter%2F&amp;title=I%27m%20on%20Twitter%20%E2%80%A6" id="wpa2a_8"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2009/05/im-on-twitter/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>smbat CLK_TCK patch</title>
+		<link>http://www.cqure.net/wp/2009/05/smbat-clk_tck-patch/</link>
+		<comments>http://www.cqure.net/wp/2009/05/smbat-clk_tck-patch/#comments</comments>
+		<pubDate>Sun, 10 May 2009 14:03:41 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[CLK_TCK]]></category>
+		<category><![CDATA[CLOCKS_PER_SEC]]></category>
+		<category><![CDATA[error]]></category>
+		<category><![CDATA[hacking]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[smbat]]></category>
+		<category><![CDATA[testing]]></category>
+		<category><![CDATA[Windows]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=72</guid>
+		<description><![CDATA[I must say that I am somewhat surprised that people still use the smbat suite for Windows security testing. Since I am doing most Windows testing from Windows now a days I have found myself using alternative tools instead. I have recieved numerous of questions over time regarding compilation problems, the most common being. Why [...]]]></description>
+			<content:encoded><![CDATA[<p>I must say that I am somewhat surprised that people still use the smbat suite for Windows security testing. Since I am doing most Windows testing from Windows now a days I have found myself using alternative tools instead.</p>
+<p>I have recieved numerous of questions over time regarding compilation problems, the most common being. Why does smbat fail to compile with the following error message?</p>
+<blockquote><p>error: &#8216;CLK_TCK&#8217; undeclared (first use in this function)</p></blockquote>
+<p>This is due to the CLK_TCK being deprecated and replaced by CLOCKS_PER_SEC. The following <a href="http://www.cqure.net/files/smbat_CLK_TCK.patch">patch</a> solves this problem. Apply it by running the following command  from within the smbat directory:</p>
+<blockquote><p>patch -p1 &lt; smbat_CLK_TCK.patch</p></blockquote>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2009%2F05%2Fsmbat-clk_tck-patch%2F&amp;title=smbat%20CLK_TCK%20patch" id="wpa2a_10"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2009/05/smbat-clk_tck-patch/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Extracting information from OScanner reports</title>
+		<link>http://www.cqure.net/wp/2008/09/extracting-information-from-oscanner-reports/</link>
+		<comments>http://www.cqure.net/wp/2008/09/extracting-information-from-oscanner-reports/#comments</comments>
+		<pubDate>Mon, 22 Sep 2008 18:50:35 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=70</guid>
+		<description><![CDATA[Even though I have barely touched oscanner for the last couple of years quite a few apparently still use it as a basic scanner against Oracle. Some have complained a bit about the annoying XML reporting format. Some have complained even more, mostly about the hassle of getting any of the discovered users, passwords and [...]]]></description>
+			<content:encoded><![CDATA[<p>Even though I have barely touched oscanner for the last couple of years quite a few apparently still use it as a basic scanner against Oracle. Some have complained a bit about the annoying XML reporting format. Some have complained even more, mostly about the hassle of getting any of the discovered users, passwords and version information out of the report.</p>
+<p>Therefore, four years after the initial release, I am releasing two small utilities. One that extracts a semicolon separated list of the hostname, instance, username and password from a given report file. The other tool simply prints the hostname and the first line from version banner retrieved from the database.</p>
+<p>Installation is simple. Download the zip file to the oscanner installation directory an unzip it. The new tools take a single argument, the oscanner logfile:</p>
+<p>java cqure.repeng.ExtractVersion oscanner_localhost_report.xml<br />
+java cqure.repeng.ExtractPasswords oscanner_localhost_report.xml</p>
+<p>The tools are available <a href="http://www.cqure.net/files/OScannerExtract_bin_0.1.zip">here</a> and have had very little testing, so don&#8217;t expect to much <img src='http://www.cqure.net/wp/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2008%2F09%2Fextracting-information-from-oscanner-reports%2F&amp;title=Extracting%20information%20from%20OScanner%20reports" id="wpa2a_12"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2008/09/extracting-information-from-oscanner-reports/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Preparing for sec-t</title>
+		<link>http://www.cqure.net/wp/2008/08/preparing-for-sec-t/</link>
+		<comments>http://www.cqure.net/wp/2008/08/preparing-for-sec-t/#comments</comments>
+		<pubDate>Wed, 27 Aug 2008 18:12:59 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[conference]]></category>
+		<category><![CDATA[sec-t]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[Stockholm]]></category>
+		<category><![CDATA[sweden]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=68</guid>
+		<description><![CDATA[Unfortunately I couldn&#8217;t make Vegas this year. According to friends and the slides I have been going through it looked as if there were quite a few really good and interesting talks this year at both Blackhat and Defcon. I will be attending the first Swedish based Sec-t security conference here in Stockholm which I [...]]]></description>
+			<content:encoded><![CDATA[<p>Unfortunately I couldn&#8217;t make Vegas this year. According to friends and the slides I have been going through it looked as if there were quite a few really good and interesting talks this year at both Blackhat and Defcon.</p>
+<p>I will be attending the first Swedish based Sec-t security conference here in Stockholm which I think might actually turn out really well. It will be held between the 11th and 12th of September.</p>
+<p>I will be speaking at the last slot on Friday about what administrators can do in order to reduce the impact of web application vulnerabilities ie. system and application hardening.</p>
+<p>More information regarding the event is available at the official web site <a href="http://www.sec-t.org/">http://www.sec-t.org/</a></p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2008%2F08%2Fpreparing-for-sec-t%2F&amp;title=Preparing%20for%20sec-t" id="wpa2a_14"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2008/08/preparing-for-sec-t/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>OWASP &#8211; Sweden meeting</title>
+		<link>http://www.cqure.net/wp/2008/05/owasp-sweden-meeting-20080527/</link>
+		<comments>http://www.cqure.net/wp/2008/05/owasp-sweden-meeting-20080527/#comments</comments>
+		<pubDate>Thu, 29 May 2008 18:01:53 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[injection]]></category>
+		<category><![CDATA[meeting]]></category>
+		<category><![CDATA[owasp]]></category>
+		<category><![CDATA[presentation]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[sweden]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=67</guid>
+		<description><![CDATA[My presentation from the Swedish OWASP meeting the other day is now online. I spoke about SQL injection (again), efficient UNION exploitation, OOB channels and DNS-tunneling in MSSql, Oracle and MySQL. The presentation, DNS-server tool and a minimal cheat sheet can be found here. I had a great time and enjoyed meeting friends, colleagues and [...]]]></description>
+			<content:encoded><![CDATA[<p>My presentation from the Swedish OWASP meeting the other day is now online.<br />
+I spoke about SQL injection (again), efficient UNION exploitation, OOB channels and DNS-tunneling in MSSql, Oracle and MySQL.</p>
+<p>The presentation, DNS-server tool and a minimal cheat sheet can be found <a title="http://www.cqure.net/files/OWASP%20-%20Sweden%20-%2020080527%20-%20SQL%20injection.zip" href="http://www.cqure.net/files/OWASP%20-%20Sweden%20-%2020080527%20-%20SQL%20injection.zip">here</a>.<br />
+I had a great time and enjoyed meeting friends, colleagues and listening to the other speaches.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2008%2F05%2Fowasp-sweden-meeting-20080527%2F&amp;title=OWASP%20%E2%80%93%20Sweden%20meeting" id="wpa2a_16"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2008/05/owasp-sweden-meeting-20080527/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>MSSQLScan 0.8 released</title>
+		<link>http://www.cqure.net/wp/2008/05/mssqlscan-08-released/</link>
+		<comments>http://www.cqure.net/wp/2008/05/mssqlscan-08-released/#comments</comments>
+		<pubDate>Sat, 03 May 2008 11:22:22 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=66</guid>
+		<description><![CDATA[I made some minor adjustments and bugfixes to the 0.7 release and released 0.8. MSSQLScan should now support a graceous shutdown when doing a ctrl-break and not skip hosts when running out of sockets. Get it here.]]></description>
+			<content:encoded><![CDATA[<p>I made some minor adjustments and bugfixes to the 0.7 release and released 0.8. MSSQLScan should now support a graceous shutdown when doing a ctrl-break and not skip hosts when running out of sockets.</p>
+<p>Get it <a href="http://www.cqure.net/wp/mssqlscan/">here</a>.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2008%2F05%2Fmssqlscan-08-released%2F&amp;title=MSSQLScan%200.8%20released" id="wpa2a_18"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2008/05/mssqlscan-08-released/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>New tool DBPwAudit</title>
+		<link>http://www.cqure.net/wp/2008/05/new-tool-dbpwaudit/</link>
+		<comments>http://www.cqure.net/wp/2008/05/new-tool-dbpwaudit/#comments</comments>
+		<pubDate>Thu, 01 May 2008 17:56:11 +0000</pubDate>
+		<dc:creator>Patrik Karlsson</dc:creator>
+				<category><![CDATA[cqure.net]]></category>
+		<category><![CDATA[db2]]></category>
+		<category><![CDATA[guess]]></category>
+		<category><![CDATA[ibm]]></category>
+		<category><![CDATA[mssql]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[password]]></category>
+		<category><![CDATA[quality]]></category>
+		<category><![CDATA[sqlserver]]></category>
+		<category><![CDATA[test]]></category>
+
+		<guid isPermaLink="false">http://www.cqure.net/wp/?p=65</guid>
+		<description><![CDATA[I have released a new tool that can be used to verify password quality against several database engines. Make sure to check it out here.]]></description>
+			<content:encoded><![CDATA[<p>I have released a new tool that can be used to verify password quality against several database engines. Make sure to check it out <a href="http://www.cqure.net/wp/?page_id=64">here</a>.</p>
+<p><a class="a2a_dd a2a_target addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.cqure.net%2Fwp%2F2008%2F05%2Fnew-tool-dbpwaudit%2F&amp;title=New%20tool%20DBPwAudit" id="wpa2a_20"><img src="http://www.cqure.net/wp/wp-content/plugins/add-to-any/share_save_171_16.png" width="171" height="16" alt="Share"/></a></p>]]></content:encoded>
+			<wfw:commentRss>http://www.cqure.net/wp/2008/05/new-tool-dbpwaudit/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>
