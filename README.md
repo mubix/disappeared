@@ -9,5 +9,6 @@ create problems, just perserve like archive.org does.
 
 Use the command wget -m -k http://site to mirror/
 
+* 2012-12-01 Cqure.net - http://mubix.github.com/disappeared/www.cqure.net/
 * 2012-11-07 SAP SDK - http://mubix.github.com/disappeared/sap_rfcsdk.zip
 * 2012-11-07 Bindshell.net added - http://mubix.github.com/disappeared/bindshell.net/
